@@ -1,241 +1,856 @@
 <!DOCTYPE html>
-<html lang="z">
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    
-    <title>Ellerbe | Talk is cheap, show me the code.</title>
-    <meta name="renderer" content="webkit">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
-    <meta name="description" content="iOS开发工程师博客生涯开始">
 
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Ellerbe | Talk is cheap, show me the code.">
-    <meta name="twitter:description" content="iOS开发工程师博客生涯开始">
 
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Ellerbe | Talk is cheap, show me the code.">
-    <meta property="og:description" content="iOS开发工程师博客生涯开始">
 
-    
-    <meta name="author" content="Eller">
-    
-    <link rel="stylesheet" href="/css/vno.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
-    
-    <link rel="icon" href="/images/avatar-small.png">
-    
 
-    <meta name="generator" content="hexo"/>
-    
-    <link rel="alternate" type="application/rss+xml" title="Ellerbe" href="/atom.xml">
-    
 
-    <link rel="canonical" href="http://www.sunhong.vip"/>
 
-                 
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="iOS开发工程师博客生涯开始">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ellerbe">
+<meta property="og:url" content="http://www.sunhong.vip/index.html">
+<meta property="og:site_name" content="Ellerbe">
+<meta property="og:description" content="iOS开发工程师博客生涯开始">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ellerbe">
+<meta name="twitter:description" content="iOS开发工程师博客生涯开始">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.sunhong.vip/"/>
+
+
+
+
+
+  <title>Ellerbe</title>
+  
+
+
+
+
+
+
+
+
 </head>
 
-<body class="home-template no-js">
-    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
-    <span class="mobile btn-mobile-menu">
-        <i class="fa fa-list btn-mobile-menu__icon"></i>
-        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ellerbe</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Talk is cheap, show me the code.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sunhong.vip/2017/09/22/2017-iOS企业证书的申请/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eller">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ellerbe">
     </span>
 
     
-<header class="panel-cover " style="background-image: url(/images/background-cover.jpg)">
-  <div class="panel-main">
-    <div class="panel-main__inner panel-inverted">
-    <div class="panel-main__content">
+      <header class="post-header">
 
-        <a href="/" title="前往 Ellerbe 的主页"><img src="/images/avatar.jpg" width="80" alt="Ellerbe logo" class="panel-cover__logo logo" /></a>
-        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for Ellerbe">Ellerbe</a></h1>
         
-        <span class="panel-cover__subtitle panel-subtitle">Talk is cheap, show me the code.</span>
         
-        <hr class="panel-cover__divider" />
-        <p class="panel-cover__description">iOS开发工程师博客生涯开始</p>
-        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/22/2017-iOS企业证书的申请/" itemprop="url">2017 iOS企业证书的申请</a></h1>
+        
 
-        <div class="navigation-wrapper">
-          <div>
-          <nav class="cover-navigation cover-navigation--primary">
-            <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+        <div class="post-meta">
+          <span class="post-time">
             
-            </ul>
-          </nav>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-22T00:00:00+08:00">
+                2017-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="2017-iOS企业证书的申请"><a href="#2017-iOS企业证书的申请" class="headerlink" title="2017 iOS企业证书的申请"></a>2017 iOS企业证书的申请</h5><p><strong><em>网上查了许多关于企业证书申请的流程，都不完整或者不正确，很不满意，所以自己动手写了一个我申请企业证书的流程以供参考</em></strong></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/22/2017-iOS企业证书的申请/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
           </div>
-          <div>
-          <nav class="cover-navigation navigation--social">
-  <ul class="navigation">
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
 
-  <!-- Weibo-->
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
   
 
-  <!-- Github -->
   
-  <li class="navigation__item">
-    <a href="https://github.com/Ellerbe" title="GitHub" target="_blank">
-      <i class='social fa fa-github'></i>
-      <span class="label">Github</span>
-    </a>
-  </li>
+  
+  
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sunhong.vip/2017/05/10/被苹果拒绝了/">
 
-<!-- Stack Overflow -->
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eller">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ellerbe">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/10/被苹果拒绝了/" itemprop="url">被苹果拒绝了</a></h1>
         
 
-  <!-- Google Plus -->
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-10T00:00:00+08:00">
+                2017-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="被苹果拒绝了"><a href="#被苹果拒绝了" class="headerlink" title="被苹果拒绝了"></a>被苹果拒绝了</h5><blockquote>
+<p>If someone has to take the tough stuff, let me do it.     ——地藏王菩萨</p>
+</blockquote>
+<p>​    <strong><em>第一次上线应用到App Store，虽然 之前也参考了很多上架文档，但都没有自己上架被拒来的印象更深刻、更痛😂</em></strong></p>
+<ol>
+<li><p>错误描述</p>
+<p>Design Preamble</p>
+<p>Your app includes an update button or alerts the user to update the app. To avoid user confusion, app version updates must utilize the iOS built-in update mechanism.</p>
+<p>Please see attached screenshots for details.</p>
+<p><strong>简言之，就是APP里有软件版本更新的提示以及相关操作</strong></p>
+<p>建议解决方案</p>
+<p>To resolve this issue, please remove the update feature from your app. To distribute a new version of your app, upload the new app binary version into the same iTunes Connect record you created for the app’s previous version. Updated versions keep the same Apple ID, iTunes Connect ID (SKU), and bundle ID as the original version, and are available free to customers who purchased a previous version.</p>
+<p><strong>解决方案，删除更新操作，bulabulabula,,,然后给你一个APP错误截图</strong></p>
+</li>
+<li><p>错误描述</p>
+<p><strong>如果没用到IDFA，就注释掉那段代码吧，省的提交的时候还要提交其他的文件</strong></p>
+</li>
+<li><p>错误描述</p>
+<p>Guideline 2.1 - Performance - App Completeness</p>
+<p>We discovered one or more bugs in your app when reviewed on iPad running iOS 10.3.2 on Wi-Fi connected to an IPv6 network.</p>
+<p>Specifically, the demo account that you provided does not contain any content. Please provide a demo account that provides content.</p>
+<p><strong>我去，竟然说我没内容，NND不知道点一下试试吗？就是点一下有个验证，验证完就有了！！！！😂</strong></p>
+<p>建议解决方案</p>
+<p>To resolve this issue, please run your app on a device while connected to an IPv6 network (all apps must support IPv6) to identify any issues, then revise and resubmit your app for review.</p>
+<p>If we misunderstood the intended behavior of your app, please reply to this message in Resolution Center to provide information on how these features were intended to work.</p>
+<p>For <strong>new</strong> apps, uninstall all previous versions of your app from a device, then install and follow the steps to reproduce the issue. For <strong>updates</strong>, install the new version as an update to the previous version, then follow the steps to reproduce the issue.</p>
+<p><strong>解决方案，连不上网络，NND我又试了试没问题啊，不会是后台更新服务那会儿吧，背/(ㄒoㄒ)/~~</strong></p>
+<p><strong><em>小插曲：这次因为苹果莫须有的原因被拒，我直接又提交审核了，之后才知道，TMD竟然有申诉，申诉比再次提交审核快多了。长记性！！！</em></strong></p>
+</li>
+<li><p>错误描述</p>
+<p>Guideline 2.3.8 - Performance - Accurate Metadata</p>
+<p>We noticed the app icon displayed on the device and the large icon displayed on the App Store do not sufficiently match, which makes it difficult for users to find the app they just downloaded.</p>
+<p>Please see attached screenshots for details.</p>
+<p><strong>意思是，应用运行后展示图标和提交审核上传的App图标不一致</strong></p>
+<p>建议解决方案</p>
+<p>To resolve this issue, please update the smaller device icon to match the larger App Store icon. When users search for your app on their devices, they should be able to recognize it from the icon on the App Store.</p>
+<p>Resources</p>
+<p>Since the large app icon will be displayed for your app on the desktop App Store, we recommend you provide an attractive, original icon that meets the following requirements for both iPhone/iPod touch and iPad apps:</p>
+<p>- 512px square (do not scale-up smaller artwork, as this could appear pixelated and blurry)</p>
+<p>- 72ppi, RGB, flattened, no transparency</p>
+<p>- High quality JPEG,TIFF, or PNG image file format. (ZIP-compressed TIFF files are not acceptable)</p>
+<p>You can also preview image files before submitting them by clicking the filename to view them in a separate window. Note that the small icon that you include inside your app’s binary will be used on the iPhone, iPod touch, or iPad Home screen when installed. For more on icon sizes, please review </p>
+<p>App Icons on iPad and iPhone</p>
+<p>.</p>
+<p>For resources on creating eye-catching icons, you may want to review the </p>
+<p>App Store Product Page</p>
+<p> information available on the Apple developer portal.</p>
+<p><strong>说了这么多呢，哎，怪我，应用程序中应用图标更改了，可是忘记更改审核上传的App图标了，所以就被拒了。/(ㄒoㄒ)/~~</strong></p>
+</li>
+<li><p>错误描述</p>
+<p>Your app contains references to test, trial, demo, beta, pre-release or other incomplete content.</p>
+<p>Specifically, your app name <code>****试用版</code> contains reference to trial (试用).</p>
+<p>建议解决方案</p>
+<p>To resolve this issue, please remove all references to “demo,” “trial,” “beta,” or “test” in your app description, app icon, screenshots, previews, release notes, and binary. If you would like to conduct a beta trial for your app, you may wish to review the <a href="https://developer.apple.com/app-store/testflight/" target="_blank" rel="external">TestFlight Beta Testing Guide</a>.</p>
+<p><strong>意思就是APP名称里不能包含<code>test, trial, demo, beta, pre-release</code>等字眼，我以为第一版已经过了，这个已经不成问题了吧，没想到，第二版给我拒了/(ㄒoㄒ)/~~</strong></p>
+</li>
+<li><p>错误描述</p>
+<p>建议解决方案</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
   
 
-<!-- Facebook -->
-
-  
-<!-- Twitter -->
-
-  
-
-  <li class="navigation__item">
-    <a href="/atom.xml" title="RSS" target="_blank">
-      <i class='social fa fa-rss'></i>
-      <span class="label">RSS</span>
-    </a>
-  </li>
-
-
-
-  </ul>
-</nav>
 
           </div>
-        </div>
+          
 
-      </div>
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Eller</p>
+              <p class="site-description motion-element" itemprop="description">iOS开发工程师博客生涯开始</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
 
     </div>
+  </aside>
 
-    <div class="panel-cover--overlay cover-purple"></div>
-  </div> 
-</header>
 
-    <div class="content-wrapper">
-        <div class="content-wrapper__inner">
-            <div class="main-post-list">
-    
-  <ol class="post-list">
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eller</span>
+
   
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/09/22/2017-iOS企业证书的申请/" title="link to post.title">2017 iOS企业证书的申请</a></h2>
-      <p class="excerpt">
-    
-      2017 iOS企业证书的申请网上查了许多关于企业证书申请的流程，都不完整或者不正确，很不满意，所以自己动手写了一个我申请企业证书的流程以供参考
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-09-21T16:00:00.000Z" class="post-list__meta--date date">2017-09-22</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/iOS开发/">iOS开发</a>
-</span><a class="btn-border-small" href="/2017/09/22/2017-iOS企业证书的申请/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/05/10/被苹果拒绝了/" title="link to post.title">被苹果拒绝了</a></h2>
-      <p class="excerpt">
-    
-      被苹果拒绝了
-If someone has to take the tough stuff, let me do it.     ——地藏王菩萨
-
-​    第一次上线应用到App Store，虽然 之前也参考了很多上架文档，但都没有自己上架被拒来的印象更深刻、更痛😂
-
-错误描述
-Design Preamble
-Your app includes an update button or aler
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-05-09T16:00:00.000Z" class="post-list__meta--date date">2017-05-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/iOS开发/">iOS开发</a>
-</span><a class="btn-border-small" href="/2017/05/10/被苹果拒绝了/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-  </ol>
-
-
- <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
-        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
-        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
-        messageStyle: "none"
-    }); 
-    
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </div>
 
 
-            <footer class="footer">
-    <span class="footer__copyright">
-        &copy; 2019 Eller - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
-       
-    </span>
-    <span class="footer__copyright">
-             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
-         </span>
-       
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
     
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
-</footer>
 
+    
 
-        </div>
-    </div>
+  </div>
 
-     
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
 
-	ga('create', 'UA-78918255-1', 'auto');
-	ga('send', 'pageview');
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
-    
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
-            var s = document.getElementsByTagName("script")[0]; 
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
 
 
 
-    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    
-    
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
