@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最近需要写一个阿拉伯数字转成汉字的功能，在网上搜到的资源都没有对小数进行处理，因此我做了一些小小的改动。不过，存在的问题是，对外部传入的NSString类型的参数有要求  1. 首个字符不能是“.”2. 不能输入两个小数点3. 保留到小数点后两位  这些限制可以放在textfield的代理方法中，在文章的最后我会给出限制的语句，可以直接使用。  现在在方法体中增加了对这些状况外条件的”适配”，妈妈">
+<meta name="keywords" content="iOS开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿拉伯数字转中文">
+<meta property="og:url" content="http://www.sunhong.vip/2016/09/27/阿拉伯数字转中文/index.html">
+<meta property="og:site_name" content="Ella">
+<meta property="og:description" content="最近需要写一个阿拉伯数字转成汉字的功能，在网上搜到的资源都没有对小数进行处理，因此我做了一些小小的改动。不过，存在的问题是，对外部传入的NSString类型的参数有要求  1. 首个字符不能是“.”2. 不能输入两个小数点3. 保留到小数点后两位  这些限制可以放在textfield的代理方法中，在文章的最后我会给出限制的语句，可以直接使用。  现在在方法体中增加了对这些状况外条件的”适配”，妈妈">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-05T06:01:35.925Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿拉伯数字转中文">
+<meta name="twitter:description" content="最近需要写一个阿拉伯数字转成汉字的功能，在网上搜到的资源都没有对小数进行处理，因此我做了一些小小的改动。不过，存在的问题是，对外部传入的NSString类型的参数有要求  1. 首个字符不能是“.”2. 不能输入两个小数点3. 保留到小数点后两位  这些限制可以放在textfield的代理方法中，在文章的最后我会给出限制的语句，可以直接使用。  现在在方法体中增加了对这些状况外条件的”适配”，妈妈">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.sunhong.vip/2016/09/27/阿拉伯数字转中文/"/>
+
+
+
+
+
+  <title>阿拉伯数字转中文 | Ella</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ella</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Talk is cheap, show me the code.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sunhong.vip/2016/09/27/阿拉伯数字转中文/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ella">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ella">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">阿拉伯数字转中文</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-27T00:00:00+08:00">
+                2016-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近需要写一个阿拉伯数字转成汉字的功能，在网上搜到的资源都没有对小数进行处理，因此我做了一些小小的改动。<br><br><del>不过，存在的问题是，对外部传入的NSString类型的参数有要求</del></p>
+<blockquote>
+<p><del>1. 首个字符不能是“.”</del><br><del>2. 不能输入两个小数点</del><br><del>3. 保留到小数点后两位</del></p>
+</blockquote>
+<p><del>这些限制可以放在textfield的代理方法中，在文章的最后我会给出限制的语句，可以直接使用。<br></del></p>
+<blockquote>
+<p>现在在方法体中增加了对这些状况外条件的”适配”，妈妈再也不用担心了。<br>不过如果你感到方法中代码太多，想在外部添加这些输入限制，可以使用<strong>/**/</strong>中的方法哦！反正都要去罗马😁<br><br>当然，如果加上了这些代码后，下方代理中的方法就可以不添加了，不知道是不是简单一些呢(⊙o⊙)?</p>
+</blockquote>
+<p><strong><em>先上数字转汉字的代码：<br></em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div></pre></td><td class="code"><pre><div class="line">+(NSString *)translation:(NSString *)arebic &#123;</div><div class="line">    /*</div><div class="line">    if (arebic.length == 0) &#123;//当字符串删除到空时，放回&quot;&quot;</div><div class="line">        return @&quot;&quot;;</div><div class="line">    &#125;</div><div class="line">    NSString *str = arebic;</div><div class="line">    BOOL isPoint = [arebic containsString:@&quot;.&quot;];</div><div class="line">    NSString *availStr;</div><div class="line">    if (isPoint) &#123;//包含小数点</div><div class="line">        NSRange range  =[arebic rangeOfString:@&quot;.&quot;];</div><div class="line">        str = [arebic substringToIndex:range.location];</div><div class="line">        availStr = [arebic substringFromIndex:(range.location+1)];</div><div class="line">    &#125;</div><div class="line">    */</div><div class="line">    ///</div><div class="line">    NSInteger pointLoc = -1;</div><div class="line">    </div><div class="line">    //当字符串删除到空时，放回&quot;&quot; || 数字输入有多个0</div><div class="line">    if ((arebic.length == 0) || ([arebic floatValue] == 0)) &#123;</div><div class="line">        return @&quot;&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    NSString *str = arebic;</div><div class="line">    </div><div class="line">    BOOL isPoint = [arebic containsString:@&quot;.&quot;];</div><div class="line">    NSString *availStr;</div><div class="line">    if (isPoint) &#123;//包含小数点</div><div class="line">        NSRange range  =[arebic rangeOfString:@&quot;.&quot;];</div><div class="line">        pointLoc = range.location;</div><div class="line">        </div><div class="line">        //当第一个是点时</div><div class="line">        if (pointLoc == 0) &#123;</div><div class="line">            str = @&quot;0&quot;;</div><div class="line">        &#125; else &#123;</div><div class="line">            str = [arebic substringToIndex:pointLoc];</div><div class="line">        &#125;</div><div class="line">        availStr = [arebic substringFromIndex:(pointLoc+1)];</div><div class="line">        </div><div class="line">        //防止出现多个小数点</div><div class="line">        if ([availStr containsString:@&quot;.&quot;]) &#123;</div><div class="line">            availStr = [availStr stringByReplacingOccurrencesOfString:@&quot;.&quot; withString:@&quot;&quot;];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //防止出现多个0，如：0000098</div><div class="line">    NSInteger zeroCount = 0;</div><div class="line">    for (int i = 1; i &lt; str.length+1; i++) &#123;</div><div class="line">        NSString *subStr = [arebic substringToIndex:i];</div><div class="line">        NSLog(@&quot;%ld&quot;,[subStr integerValue]);</div><div class="line">        if ([subStr integerValue] != 0) &#123;</div><div class="line">            zeroCount = i-1;</div><div class="line">            break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    str = [str substringFromIndex:zeroCount];</div><div class="line">    ///</div><div class="line">    </div><div class="line">    NSArray *arabic_numerals = @[@&quot;1&quot;,@&quot;2&quot;,@&quot;3&quot;,@&quot;4&quot;,@&quot;5&quot;,@&quot;6&quot;,@&quot;7&quot;,@&quot;8&quot;,@&quot;9&quot;,@&quot;0&quot;];</div><div class="line">    NSArray *chinese_numerals = @[@&quot;一&quot;,@&quot;二&quot;,@&quot;三&quot;,@&quot;四&quot;,@&quot;五&quot;,@&quot;六&quot;,@&quot;七&quot;,@&quot;八&quot;,@&quot;九&quot;,@&quot;零&quot;];</div><div class="line">    NSArray *digits = @[@&quot;&quot;,@&quot;十&quot;,@&quot;百&quot;,@&quot;千&quot;,@&quot;万&quot;,@&quot;十&quot;,@&quot;百&quot;,@&quot;千&quot;,@&quot;亿&quot;,@&quot;十&quot;,@&quot;百&quot;,@&quot;千&quot;,@&quot;兆&quot;];</div><div class="line">    if (str.length &gt; digits.count) &#123;//防止数字超过兆导致崩溃</div><div class="line">        str = [arebic substringToIndex:digits.count];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:chinese_numerals forKeys:arabic_numerals];</div><div class="line">    </div><div class="line">    NSMutableArray *sums = [NSMutableArray array];</div><div class="line">    for (int i = 0; i &lt; str.length; i ++) &#123;</div><div class="line">        NSString *substr = [str substringWithRange:NSMakeRange(i, 1)];</div><div class="line">        NSString *a = [dictionary objectForKey:substr];</div><div class="line">        NSInteger digitIndex = str.length -i-1;</div><div class="line">        NSString *b = digits[digitIndex];</div><div class="line">        NSString *sum = [a stringByAppendingString:b];</div><div class="line">        if ([a isEqualToString:chinese_numerals[9]])</div><div class="line">        &#123;</div><div class="line">            if([b isEqualToString:digits[4]] || [b isEqualToString:digits[8]])</div><div class="line">            &#123;</div><div class="line">                sum = b;</div><div class="line">                if ([[sums lastObject] isEqualToString:chinese_numerals[9]])</div><div class="line">                &#123;</div><div class="line">                    [sums removeLastObject];</div><div class="line">                &#125;</div><div class="line">            &#125;else</div><div class="line">            &#123;</div><div class="line">                sum = chinese_numerals[9];</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            if ([[sums lastObject] isEqualToString:sum])</div><div class="line">            &#123;</div><div class="line">                continue;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        [sums addObject:sum];</div><div class="line">    &#125;</div><div class="line">    //解决现象，如：五百万零元的显示——&gt;五百万元</div><div class="line">    if (sums.count &gt; 1 &amp;&amp; [sums.lastObject isEqualToString:@&quot;零&quot;]) &#123;</div><div class="line">        [sums removeLastObject];</div><div class="line">    &#125;</div><div class="line">    if (isPoint &amp;&amp; availStr.length &gt; 0) &#123;</div><div class="line">        </div><div class="line">        [sums addObject:@&quot;点&quot;];</div><div class="line"></div><div class="line">        for (int i = 0; i &lt; availStr.length; i ++) &#123;</div><div class="line">            NSString *substr = [availStr substringWithRange:NSMakeRange(i, 1)];</div><div class="line">            NSString *a = [dictionary objectForKey:substr];</div><div class="line">            [sums addObject:a];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    [sums addObject:@&quot;元&quot;];</div><div class="line">    NSString *sumStr = [sums componentsJoinedByString:@&quot;&quot;];</div><div class="line">    NSString *chinese = [sumStr substringToIndex:sumStr.length];</div><div class="line">    </div><div class="line">//    NSLog(@&quot;%@&quot;,str);</div><div class="line">//    NSLog(@&quot;%@&quot;,chinese);</div><div class="line">    return chinese;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以直接对带有小数点的数字进行转换。<br></p>
+<hr>
+<p><strong>下方是对文字的限制代码：(下方仅供参考，使用了上方的代码块，这些限制统统不需要了)<br></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> *  需要避免</div><div class="line"> *</div><div class="line"> *  1.首个字符不能是“.”</div><div class="line"> *  2.不能输入两个小数点</div><div class="line"> *  3.保留到小数点后两位</div><div class="line"> *</div><div class="line"> */</div><div class="line">- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string&#123;</div><div class="line">    </div><div class="line">    NSLog(@&quot;string------%@&quot;,string);</div><div class="line">    NSLog(@&quot;textField******%@&quot;,textField.text);</div><div class="line">    </div><div class="line">    NSUInteger nDotLoc = [textField.text rangeOfString:@&quot;.&quot;].location;</div><div class="line">    </div><div class="line">    if ([string isEqualToString:@&quot;.&quot;]) &#123;</div><div class="line">        //1.首个字符不能是“.”</div><div class="line">        if (textField.text.length == 0) &#123;</div><div class="line">            [self showError:@&quot;亲，第一个数字不能为小数点&quot;];</div><div class="line">            return NO;</div><div class="line">        &#125;</div><div class="line">        //2.限制只能输入一个小数点</div><div class="line">        if (NSNotFound != nDotLoc) &#123;</div><div class="line">            [self showError:@&quot;亲，您已经输入过小数点了&quot;];</div><div class="line">            return NO;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    //3.有小数点时，不能超过小数点后两位</div><div class="line">    if (NSNotFound != nDotLoc &amp;&amp; range.location &gt; nDotLoc + 2) &#123;</div><div class="line">        [self showError:@&quot;亲，您最多输入两位小数&quot;];</div><div class="line">        return NO;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/Sun-Hong/NumIntoHanzi" target="_blank" rel="external">附上代码github地址</a><br><br>如果喜欢，欢迎star喔！！！😘:blush:</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS开发/" rel="tag"># iOS开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/11/iOS小技巧总结/" rel="prev" title="iOS小技巧总结">
+                iOS小技巧总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Ella" />
+            
+              <p class="site-author-name" itemprop="name">Ella</p>
+              <p class="site-description motion-element" itemprop="description">将来的你 一定会感激现在拼命的自己</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/60dc3c4c6c3d" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-book"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Ellerbe" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情站点
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://chanceli.com" title="ChanceLi" target="_blank">ChanceLi</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ella</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

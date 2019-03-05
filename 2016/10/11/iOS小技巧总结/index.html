@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="参考iOS_小松哥的iOS小技巧总结 总结日常代码生活中的小技巧，随时可用 阿拉伯数字转中文格式阿拉伯数字转中文格式UITextField每四位加一个空格,实现代理 123456789101112131415161718192021- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)ra">
+<meta name="keywords" content="iOS开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS小技巧总结">
+<meta property="og:url" content="http://www.sunhong.vip/2016/10/11/iOS小技巧总结/index.html">
+<meta property="og:site_name" content="Ella">
+<meta property="og:description" content="参考iOS_小松哥的iOS小技巧总结 总结日常代码生活中的小技巧，随时可用 阿拉伯数字转中文格式阿拉伯数字转中文格式UITextField每四位加一个空格,实现代理 123456789101112131415161718192021- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)ra">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/525624-1afa71c6d103be19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/525624-6295ab3718de760b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-03-05T06:00:27.637Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS小技巧总结">
+<meta name="twitter:description" content="参考iOS_小松哥的iOS小技巧总结 总结日常代码生活中的小技巧，随时可用 阿拉伯数字转中文格式阿拉伯数字转中文格式UITextField每四位加一个空格,实现代理 123456789101112131415161718192021- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)ra">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/525624-1afa71c6d103be19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.sunhong.vip/2016/10/11/iOS小技巧总结/"/>
+
+
+
+
+
+  <title>iOS小技巧总结 | Ella</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ella</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Talk is cheap, show me the code.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sunhong.vip/2016/10/11/iOS小技巧总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ella">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ella">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS小技巧总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-11T00:00:00+08:00">
+                2016-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>参考<a href="http://www.jianshu.com/p/4523eafb4cd4" target="_blank" rel="external">iOS_小松哥的iOS小技巧总结</a></strong></p>
+<p><strong>总结日常代码生活中的小技巧，随时可用</strong></p>
+<p><strong>阿拉伯数字转中文格式</strong><br><a href="http://www.jianshu.com/p/2d77db5633bc" target="_blank" rel="external">阿拉伯数字转中文格式</a><br><strong>UITextField每四位加一个空格,实现代理</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string</div><div class="line">&#123;</div><div class="line">    // 四位加一个空格</div><div class="line">    if ([string isEqualToString:@&quot;&quot;])</div><div class="line">    &#123;</div><div class="line">        // 删除字符</div><div class="line">        if ((textField.text.length - 2) % 5 == 0)</div><div class="line">        &#123;</div><div class="line">            textField.text = [textField.text substringToIndex:textField.text.length - 1];</div><div class="line">        &#125;</div><div class="line">        return YES;</div><div class="line">    &#125;</div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        if (textField.text.length % 5 == 0)</div><div class="line">        &#123;</div><div class="line">            textField.text = [NSString stringWithFormat:@&quot;%@ &quot;, textField.text];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>禁止锁屏</strong></p>
+<p><strong><em>默认情况下，当设备一段时间没有触控动作时，iOS会锁住屏幕。但有一些应用是不需要锁屏的，比如视频播放器。</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[UIApplication sharedApplication].idleTimerDisabled = YES;</div><div class="line">或</div><div class="line">[[UIApplication sharedApplication] setIdleTimerDisabled:YES];</div></pre></td></tr></table></figure>
+<p><strong><em>iOS 获取汉字的拼音</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">+ (NSString *)transform:(NSString *)chinese</div><div class="line">&#123;    </div><div class="line">    //将NSString装换成NSMutableString </div><div class="line">    NSMutableString *pinyin = [chinese mutableCopy];    </div><div class="line">    //将汉字转换为拼音(带音标)    </div><div class="line">    CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformMandarinLatin, NO);    </div><div class="line">    NSLog(@&quot;%@&quot;, pinyin);    </div><div class="line">    //去掉拼音的音标    </div><div class="line">    CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformStripCombiningMarks, NO);    </div><div class="line">    NSLog(@&quot;%@&quot;, pinyin);    </div><div class="line">    //返回最近结果    </div><div class="line">    return pinyin;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p><strong>手动更改iOS状态栏的颜色</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (void)setStatusBarBackgroundColor:(UIColor *)color</div><div class="line">&#123;</div><div class="line">    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@&quot;statusBarWindow&quot;] valueForKey:@&quot;statusBar&quot;];</div><div class="line"></div><div class="line">    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)])</div><div class="line">    &#123;</div><div class="line">        statusBar.backgroundColor = color;    </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em>NSArray 快速求总和 最大值 最小值 和 平均值</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">NSArray *array = [NSArray arrayWithObjects:@&quot;2.0&quot;, @&quot;2.3&quot;, @&quot;3.0&quot;, @&quot;4.0&quot;, @&quot;10&quot;, nil];</div><div class="line">CGFloat sum = [[array valueForKeyPath:@&quot;@sum.floatValue&quot;] floatValue];</div><div class="line">CGFloat avg = [[array valueForKeyPath:@&quot;@avg.floatValue&quot;] floatValue];</div><div class="line">CGFloat max =[[array valueForKeyPath:@&quot;@max.floatValue&quot;] floatValue];</div><div class="line">CGFloat min =[[array valueForKeyPath:@&quot;@min.floatValue&quot;] floatValue];</div><div class="line">NSLog(@&quot;%f\n%f\n%f\n%f&quot;,sum,avg,max,min);</div></pre></td></tr></table></figure>
+<p><strong><em>修改UITextField中Placeholder的文字颜色</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[textField setValue:[UIColor redColor] forKeyPath:@&quot;_placeholderLabel.textColor&quot;];</div><div class="line">或</div><div class="line">  textField.tintColor = [UIColor redColor];</div></pre></td></tr></table></figure>
+<p><strong><em>关于NSDateFormatter的格式</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">G: 公元时代，例如AD公元</div><div class="line">yy: 年的后2位</div><div class="line">yyyy: 完整年</div><div class="line">MM: 月，显示为1-12</div><div class="line">MMM: 月，显示为英文月份简写,如 Jan</div><div class="line">MMMM: 月，显示为英文月份全称，如 Janualy</div><div class="line">dd: 日，2位数表示，如02</div><div class="line">d: 日，1-2位显示，如 2</div><div class="line">EEE: 简写星期几，如Sun</div><div class="line">EEEE: 全写星期几，如Sunday</div><div class="line">aa: 上下午，AM/PM</div><div class="line">H: 时，24小时制，0-23</div><div class="line">K：时，12小时制，0-11</div><div class="line">m: 分，1-2位</div><div class="line">mm: 分，2位</div><div class="line">s: 秒，1-2位</div><div class="line">ss: 秒，2位</div><div class="line">S: 毫秒</div></pre></td></tr></table></figure>
+<p><strong><em>UIImage 占用内存大小</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIImage *image = [UIImage imageNamed:@&quot;aa&quot;];</div><div class="line">NSUInteger size  = CGImageGetHeight(image.CGImage) * CGImageGetBytesPerRow(image.CGImage);</div></pre></td></tr></table></figure>
+<p><strong><em>图片上绘制文字 写一个UIImage的category</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">- (UIImage *)imageWithTitle:(NSString *)title fontSize:(CGFloat)fontSize</div><div class="line">&#123;</div><div class="line">    //画布大小</div><div class="line">    CGSize size=CGSizeMake(self.size.width,self.size.height);</div><div class="line">    //创建一个基于位图的上下文</div><div class="line">    UIGraphicsBeginImageContextWithOptions(size,NO,0.0);//opaque:NO  scale:0.0</div><div class="line"></div><div class="line">    [self drawAtPoint:CGPointMake(0.0,0.0)];</div><div class="line"></div><div class="line">    //文字居中显示在画布上</div><div class="line">    NSMutableParagraphStyle* paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];</div><div class="line">    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;</div><div class="line">    paragraphStyle.alignment=NSTextAlignmentCenter;//文字居中</div><div class="line"></div><div class="line">    //计算文字所占的size,文字居中显示在画布上</div><div class="line">    CGSize sizeText=[title boundingRectWithSize:self.size options:NSStringDrawingUsesLineFragmentOrigin</div><div class="line">                                     attributes:@&#123;NSFontAttributeName:[UIFont systemFontOfSize:fontSize]&#125;context:nil].size;</div><div class="line">    CGFloat width = self.size.width;</div><div class="line">    CGFloat height = self.size.height;</div><div class="line"></div><div class="line">    CGRect rect = CGRectMake((width-sizeText.width)/2, (height-sizeText.height)/2, sizeText.width, sizeText.height);</div><div class="line">    //绘制文字</div><div class="line">    [title drawInRect:rect withAttributes:@&#123; NSFontAttributeName:[UIFont systemFontOfSize:fontSize],NSForegroundColorAttributeName:[ UIColor whiteColor],NSParagraphStyleAttributeName:paragraphStyle&#125;];</div><div class="line"></div><div class="line">    //返回绘制的新图形</div><div class="line">    UIImage *newImage= UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">    UIGraphicsEndImageContext();</div><div class="line">    return newImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em>计算文件大小</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">//文件大小</div><div class="line">- (long long)fileSizeAtPath:(NSString *)path</div><div class="line">&#123;</div><div class="line">    NSFileManager *fileManager = [NSFileManager defaultManager];</div><div class="line"></div><div class="line">    if ([fileManager fileExistsAtPath:path])</div><div class="line">    &#123;</div><div class="line">        long long size = [fileManager attributesOfItemAtPath:path error:nil].fileSize;</div><div class="line">        return size;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//文件夹大小</div><div class="line">- (long long)folderSizeAtPath:(NSString *)path</div><div class="line">&#123;</div><div class="line">    NSFileManager *fileManager = [NSFileManager defaultManager];</div><div class="line"></div><div class="line">    long long folderSize = 0;</div><div class="line"></div><div class="line">    if ([fileManager fileExistsAtPath:path])</div><div class="line">    &#123;</div><div class="line">        NSArray *childerFiles = [fileManager subpathsAtPath:path];</div><div class="line">        for (NSString *fileName in childerFiles)</div><div class="line">        &#123;</div><div class="line">            NSString *fileAbsolutePath = [path stringByAppendingPathComponent:fileName];</div><div class="line">            if ([fileManager fileExistsAtPath:fileAbsolutePath])</div><div class="line">            &#123;</div><div class="line">                long long size = [fileManager attributesOfItemAtPath:fileAbsolutePath error:nil].fileSize;</div><div class="line">                folderSize += size;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return folderSize;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em>给UIView设置图片</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UIImage *image = [UIImage imageNamed:@&quot;image&quot;];</div><div class="line">self.MYView.layer.contents = (__bridge id _Nullable)(image.CGImage);</div><div class="line">self.MYView.layer.contentsRect = CGRectMake(0, 0, 0.5, 0.5);</div></pre></td></tr></table></figure>
+<p><strong><em>防止scrollView手势覆盖侧滑手势</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[scrollView.panGestureRecognizerrequireGestureRecognizerToFail:self.navigationController.interactivePopGestureRecognizer];</div></pre></td></tr></table></figure>
+<p><strong><em>获取私有属性和成员变量 #import <objc runtime.h=""></objc></em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//获取私有属性 比如设置UIDatePicker的字体颜色</div><div class="line">- (void)setTextColor</div><div class="line">&#123;</div><div class="line">    //获取所有的属性，去查看有没有对应的属性</div><div class="line">    unsigned int count = 0;</div><div class="line">    objc_property_t *propertys = class_copyPropertyList([UIDatePicker class], &amp;count);</div><div class="line">    for(int i = 0;i &lt; count;i ++)</div><div class="line">    &#123;</div><div class="line">        //获得每一个属性</div><div class="line">        objc_property_t property = propertys[i];</div><div class="line">        //获得属性对应的nsstring</div><div class="line">        NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];</div><div class="line">        //输出打印看对应的属性</div><div class="line">        NSLog(@&quot;propertyname = %@&quot;,propertyName);</div><div class="line">        if ([propertyName isEqualToString:@&quot;textColor&quot;])</div><div class="line">        &#123;</div><div class="line">            [datePicker setValue:[UIColor whiteColor] forKey:propertyName];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//获得成员变量 比如修改UIAlertAction的按钮字体颜色</div><div class="line">    unsigned int count = 0;</div><div class="line">    Ivar *ivars = class_copyIvarList([UIAlertAction class], &amp;count);</div><div class="line">    for(int i =0;i &lt; count;i ++)</div><div class="line">    &#123;</div><div class="line">        Ivar ivar = ivars[i];</div><div class="line">        NSString *ivarName = [NSString stringWithCString:ivar_getName(ivar) encoding:NSUTF8StringEncoding];</div><div class="line">        NSLog(@&quot;uialertion.ivarName = %@&quot;,ivarName);</div><div class="line">        if ([ivarName isEqualToString:@&quot;_titleTextColor&quot;])</div><div class="line">        &#123;</div><div class="line">            [alertOk setValue:[UIColor blueColor] forKey:@&quot;titleTextColor&quot;];</div><div class="line">            [alertCancel setValue:[UIColor purpleColor] forKey:@&quot;titleTextColor&quot;];</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p><strong><em>获取手机安装的应用</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Class c =NSClassFromString(@&quot;LSApplicationWorkspace&quot;);</div><div class="line">id s = [(id)c performSelector:NSSelectorFromString(@&quot;defaultWorkspace&quot;)];</div><div class="line">NSArray *array = [s performSelector:NSSelectorFromString(@&quot;allInstalledApplications&quot;)];</div><div class="line">for (id item in array)</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;%@&quot;,[item performSelector:NSSelectorFromString(@&quot;applicationIdentifier&quot;)]);</div><div class="line">    //NSLog(@&quot;%@&quot;,[item performSelector:NSSelectorFromString(@&quot;bundleIdentifier&quot;)]);</div><div class="line">    NSLog(@&quot;%@&quot;,[item performSelector:NSSelectorFromString(@&quot;bundleVersion&quot;)]);</div><div class="line">    NSLog(@&quot;%@&quot;,[item performSelector:NSSelectorFromString(@&quot;shortVersionString&quot;)]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em>判断两个日期是否在同一周 写在NSDate的category里面</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">- (BOOL)isSameDateWithDate:(NSDate *)date</div><div class="line">&#123;</div><div class="line">    //日期间隔大于七天之间返回NO</div><div class="line">    if (fabs([self timeIntervalSinceDate:date]) &gt;= 7 * 24 *3600)</div><div class="line">    &#123;</div><div class="line">        return NO;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    NSCalendar *calender = [NSCalendar currentCalendar];</div><div class="line">    calender.firstWeekday = 2;//设置每周第一天从周一开始</div><div class="line">    //计算两个日期分别为这年第几周</div><div class="line">    NSUInteger countSelf = [calender ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitYear forDate:self];</div><div class="line">    NSUInteger countDate = [calender ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitYear forDate:date];</div><div class="line"></div><div class="line">    //相等就在同一周，不相等就不在同一周</div><div class="line">    return countSelf == countDate;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em>应用内打开系统设置界面</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//iOS8之后</div><div class="line">[[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];</div><div class="line">//如果App没有添加权限，显示的是设定界面。如果App有添加权限（例如通知），显示的是App的设定界面。</div></pre></td></tr></table></figure>
+<p><strong><em>获取WebView所有的图片地址</em></strong></p>
+<p><strong>在网页加载完成时，通过js获取图片和添加点击的识别方式</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//UIWebView</div><div class="line">- (void)webViewDidFinishLoad:(UIWebView *)webView</div><div class="line">&#123;</div><div class="line">    //这里是js，主要目的实现对url的获取</div><div class="line">    static  NSString * const jsGetImages =</div><div class="line">    @&quot;function getImages()&#123;\</div><div class="line">    var objs = document.getElementsByTagName(\&quot;img\&quot;);\</div><div class="line">    var imgScr = &apos;&apos;;\</div><div class="line">    for(var i=0;i&lt;objs.length;i++)&#123;\</div><div class="line">    imgScr = imgScr + objs[i].src + &apos;+&apos;;\</div><div class="line">    &#125;;\</div><div class="line">    return imgScr;\</div><div class="line">    &#125;;&quot;;</div><div class="line"></div><div class="line">    [webView stringByEvaluatingJavaScriptFromString:jsGetImages];//注入js方法</div><div class="line">    NSString *urlResult = [webView stringByEvaluatingJavaScriptFromString:@&quot;getImages()&quot;];</div><div class="line">    NSArray *urlArray = [NSMutableArray arrayWithArray:[urlResult componentsSeparatedByString:@&quot;+&quot;]];</div><div class="line">    //urlResurlt 就是获取到得所有图片的url的拼接；mUrlArray就是所有Url的数组</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//WKWebView</div><div class="line">- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation</div><div class="line">&#123;</div><div class="line">    static  NSString * const jsGetImages =</div><div class="line">    @&quot;function getImages()&#123;\</div><div class="line">    var objs = document.getElementsByTagName(\&quot;img\&quot;);\</div><div class="line">    var imgScr = &apos;&apos;;\</div><div class="line">    for(var i=0;i&lt;objs.length;i++)&#123;\</div><div class="line">    imgScr = imgScr + objs[i].src + &apos;+&apos;;\</div><div class="line">    &#125;;\</div><div class="line">    return imgScr;\</div><div class="line">    &#125;;&quot;;</div><div class="line"></div><div class="line">    [webView evaluateJavaScript:jsGetImages completionHandler:nil];</div><div class="line">    [webView evaluateJavaScript:@&quot;getImages()&quot; completionHandler:^(id _Nullable result, NSError * _Nullable error) &#123;</div><div class="line">        NSLog(@&quot;%@&quot;,result);</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em>获取到webview的高度</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString:@&quot;document.body.offsetHeight&quot;] floatValue];</div></pre></td></tr></table></figure>
+<p><strong><em>navigationBar变为纯透明</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//第一种方法</div><div class="line">//导航栏纯透明</div><div class="line">[self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];</div><div class="line">//去掉导航栏底部的黑线</div><div class="line">self.navigationBar.shadowImage = [UIImage new];</div><div class="line"></div><div class="line">//第二种方法</div><div class="line">[[self.navigationBar subviews] objectAtIndex:0].alpha = 0;</div></pre></td></tr></table></figure>
+<p><strong><em>navigationBar根据滑动距离的渐变色实现</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//第一种</div><div class="line">- (void)scrollViewDidScroll:(UIScrollView *)scrollView</div><div class="line">&#123;</div><div class="line">    CGFloat offsetToShow = 200.0;//滑动多少就完全显示</div><div class="line">    CGFloat alpha = 1 - (offsetToShow - scrollView.contentOffset.y) / offsetToShow;</div><div class="line">    [[self.navigationController.navigationBar subviews] objectAtIndex:0].alpha = alpha;</div><div class="line">&#125;</div><div class="line">//第二种</div><div class="line">- (void)scrollViewDidScroll:(UIScrollView *)scrollView</div><div class="line">&#123;</div><div class="line">    CGFloat offsetToShow = 200.0;</div><div class="line">    CGFloat alpha = 1 - (offsetToShow - scrollView.contentOffset.y) / offsetToShow;</div><div class="line"></div><div class="line">    [self.navigationController.navigationBar setShadowImage:[UIImage new]];</div><div class="line">    [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor orangeColor]colorWithAlphaComponent:alpha]] forBarMetrics:UIBarMetricsDefault];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//生成一张纯色的图片</div><div class="line">- (UIImage *)imageWithColor:(UIColor *)color</div><div class="line">&#123;</div><div class="line">    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);</div><div class="line">    UIGraphicsBeginImageContext(rect.size);</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetFillColorWithColor(context, [color CGColor]);</div><div class="line">    CGContextFillRect(context, rect);</div><div class="line">    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">    UIGraphicsEndImageContext();</div><div class="line"></div><div class="line">    return theImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em>iOS 开发中一些相关的路径</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">模拟器的位置:</div><div class="line">/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs </div><div class="line"></div><div class="line">文档安装位置:</div><div class="line">/Applications/Xcode.app/Contents/Developer/Documentation/DocSets</div><div class="line"></div><div class="line">插件保存路径:</div><div class="line">~/Library/ApplicationSupport/Developer/Shared/Xcode/Plug-ins</div><div class="line"></div><div class="line">自定义代码段的保存路径:</div><div class="line">~/Library/Developer/Xcode/UserData/CodeSnippets/ </div><div class="line">如果找不到CodeSnippets文件夹，可以自己新建一个CodeSnippets文件夹。</div><div class="line"></div><div class="line">描述文件路径</div><div class="line">~/Library/MobileDevice/Provisioning Profiles</div></pre></td></tr></table></figure>
+<p><strong><em>navigationItem的BarButtonItem如何紧靠屏幕右边界或者左边界？</em></strong></p>
+<p><strong>一般情况下，右边的item会和屏幕右侧保持一段距离：</strong><br></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/525624-1afa71c6d103be19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><strong>下面是通过添加一个负值宽度的固定间距的item来解决，也可以改变宽度实现不同的间隔：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">UIImage *img = [[UIImage imageNamed:@&quot;icon_cog&quot;] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];</div><div class="line">//宽度为负数的固定间距的系统item</div><div class="line">UIBarButtonItem *rightNegativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];</div><div class="line">[rightNegativeSpacer setWidth:-15];</div><div class="line"></div><div class="line">UIBarButtonItem *rightBtnItem1 = [[UIBarButtonItem alloc]initWithImage:img style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonItemClicked:)];</div><div class="line">UIBarButtonItem *rightBtnItem2 = [[UIBarButtonItem alloc]initWithImage:img style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonItemClicked:)];</div><div class="line">self.navigationItem.rightBarButtonItems = @[rightNegativeSpacer,rightBtnItem1,rightBtnItem2];</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/525624-6295ab3718de760b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image1.png"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS开发/" rel="tag"># iOS开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/27/阿拉伯数字转中文/" rel="next" title="阿拉伯数字转中文">
+                <i class="fa fa-chevron-left"></i> 阿拉伯数字转中文
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/18/Xcode：添加自定义代码片段/" rel="prev" title="Xcode：添加自定义代码片段">
+                Xcode：添加自定义代码片段 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Ella" />
+            
+              <p class="site-author-name" itemprop="name">Ella</p>
+              <p class="site-description motion-element" itemprop="description">将来的你 一定会感激现在拼命的自己</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/60dc3c4c6c3d" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-book"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Ellerbe" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情站点
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://chanceli.com" title="ChanceLi" target="_blank">ChanceLi</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ella</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在Xcode的库面板——代码片段库 中，可以添加自定义的使用率比较高代码块 添加方法：  通过快捷键(control+option+command+2)打开code snippet library, 在Xcode屏幕的右下角(Xcode改版后，版面发生了改变）  更改后的打开位置：  选中你的代码片段拖到code sniper library中,并设置title，快捷键，作用域    就是直接使用">
+<meta name="keywords" content="iOS开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xcode：添加自定义代码片段">
+<meta property="og:url" content="http://www.sunhong.vip/2017/01/18/Xcode：添加自定义代码片段/index.html">
+<meta property="og:site_name" content="Ella">
+<meta property="og:description" content="在Xcode的库面板——代码片段库 中，可以添加自定义的使用率比较高代码块 添加方法：  通过快捷键(control+option+command+2)打开code snippet library, 在Xcode屏幕的右下角(Xcode改版后，版面发生了改变）  更改后的打开位置：  选中你的代码片段拖到code sniper library中,并设置title，快捷键，作用域    就是直接使用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/525624-139e4876ea0fbf57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/525624-6f8b688499273437.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/525624-614679f9a9d33e76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/525624-ed2d5ee688cde158.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2019-03-05T05:58:16.376Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Xcode：添加自定义代码片段">
+<meta name="twitter:description" content="在Xcode的库面板——代码片段库 中，可以添加自定义的使用率比较高代码块 添加方法：  通过快捷键(control+option+command+2)打开code snippet library, 在Xcode屏幕的右下角(Xcode改版后，版面发生了改变）  更改后的打开位置：  选中你的代码片段拖到code sniper library中,并设置title，快捷键，作用域    就是直接使用">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/525624-139e4876ea0fbf57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.sunhong.vip/2017/01/18/Xcode：添加自定义代码片段/"/>
+
+
+
+
+
+  <title>Xcode：添加自定义代码片段 | Ella</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ella</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Talk is cheap, show me the code.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sunhong.vip/2017/01/18/Xcode：添加自定义代码片段/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ella">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ella">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Xcode：添加自定义代码片段</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-18T00:00:00+08:00">
+                2017-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在Xcode的库面板——代码片段库 中，可以添加自定义的使用率比较高代码块<br></p>
+<p>添加方法：</p>
+<ol>
+<li><del>通过快捷键(control+option+command+2)打开code snippet library, 在Xcode屏幕的右下角</del>(Xcode改版后，版面发生了改变）</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/525624-139e4876ea0fbf57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="❎打开代码库.png"><br>更改后的打开位置：<br><img src="https://upload-images.jianshu.io/upload_images/525624-6f8b688499273437.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="打开代码块.png"><br><img src="https://upload-images.jianshu.io/upload_images/525624-614679f9a9d33e76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="打开代码块.png"></p>
+<ol>
+<li>选中你的代码片段拖到code sniper library中,并设置title，快捷键，作用域</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/525624-ed2d5ee688cde158.gif?imageMogr2/auto-orient/strip" alt="拖动代码块.gif"></p>
+<ol>
+<li>就是直接使用了，直接敲设置的快捷键就会弹出提示，直接回车就出出现你的代码片段</li>
+</ol>
+<p>自己使用的如下：</p>
+<table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Completion Shortcut</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@property (strong)</td>
+<td>propertystrong</td>
+<td>@property (nonatomic, strong) &lt;#type#&gt; *&lt;#name#&gt;;</td>
+</tr>
+<tr>
+<td>@property (weak)</td>
+<td>propertyweak</td>
+<td>@property (nonatomic, weak) &lt;#type#&gt; *&lt;#name#&gt;;</td>
+</tr>
+<tr>
+<td>@property(assign)</td>
+<td>propertyassign</td>
+<td>@property (nonatomic, assign) &lt;#Type#&gt; &lt;#type#&gt;</td>
+</tr>
+<tr>
+<td>@property(block)</td>
+<td>propertyblock</td>
+<td>@property (nonatomic, copy) void(^&lt;#Type#&gt;)(&lt;#type#&gt;);</td>
+</tr>
+<tr>
+<td>@property(copy)</td>
+<td>propertycopy</td>
+<td>@property (nonatomic, copy) &lt;#Type#&gt; *&lt;#type#&gt;</td>
+</tr>
+<tr>
+<td>/<strong> </strong>/</td>
+<td>ss</td>
+<td>/&lt;  &lt;#注释#&gt;  &gt;/</td>
+</tr>
+<tr>
+<td>#pragma mark</td>
+<td>pm</td>
+<td>#pragma mark - &lt;#delegate#&gt;</td>
+</tr>
+</tbody>
+</table>
+<p>////////</p>
+<p>ff 分隔行</p>
+<pre><code>///////////////////////////////////////////////////////////////////////////////
+</code></pre><p>/<em>* </em>/</p>
+<p>dd 多行注释</p>
+<p>dd</p>
+<pre><code>/**
+ *  &lt;##&gt;
+*/
+</code></pre><p>创建单例</p>
+<p>shareInstance</p>
+<pre><code>+ (instancetype)shareInstance {
+    static dispatch_once_t onceToken;
+    static id _singleton_;
+    dispatch_once(&amp;onceToken, ^{
+        _singleton_ = [[self alloc] init];
+    });
+    return _singleton_;
+}
+</code></pre><p>block</p>
+<p>typefblock</p>
+<pre><code>void (^&lt;#Title#&gt;)(&lt;#Type#&gt; &lt;#type#&gt;) = ^(&lt;#Type#&gt; &lt;#type#&gt;){
+
+};
+</code></pre><p>CollectionDataSource</p>
+<p>CollectionDataSource</p>
+<p>CollectionSource</p>
+<pre><code>#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return &lt;#NSInteger#&gt;;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cid forIndexPath:indexPath];
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return &lt;#NSInteger#&gt;;
+}
+</code></pre><p>CollectionDelegate</p>
+<p>collectijonviewdelegate</p>
+<pre><code>#pragma mark - collectionViewDelegate
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(0, 0);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    NSLog(@&quot;%ld&quot;,indexPath.row);
+}
+</code></pre><p>Notification Add</p>
+<p>na</p>
+<pre><code>[[NSNotificationCenter defaultCenter] addObserver:&lt;#Observer#&gt; selector:&lt;#Selector#&gt; name:&lt;#Name#&gt; object:&lt;#Object#&gt;];
+</code></pre><p>Notification Remove</p>
+<p>nr</p>
+<pre><code>[[NSNotificationCenter defaultCenter] removeObserver:&lt;#Observer#&gt; name:&lt;#Name#&gt; object:&lt;#Object#&gt;];
+</code></pre><p>NSLog</p>
+<p>log</p>
+<pre><code>NSLog(@&quot;&lt;#Log#&gt;&quot;); 
+</code></pre><p>Private Interface</p>
+<p>interface</p>
+<pre><code>@interface &lt;#Title#&gt; ()
+
+@end
+</code></pre><p>TableView</p>
+<p>createTableView</p>
+<p>tablesource</p>
+<pre><code>#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return &lt;#NSInteger#&gt;;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return &lt;#NSInteger#&gt;;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return &lt;#UITableViewCell#&gt;;
+}
+</code></pre><p>Tableview分割线</p>
+<p>tableviewseparate</p>
+<pre><code>//view布局完子控件的时候调用
+- (void)viewDidLayoutSubviews
+{
+    //iOS7只需要设置SeparatorInset(iOS7开始有的)就可以了，但是iOS8的话单单只设置这个是不行的，还需要设置LayoutMargins(iOS8开始有的)
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0,0,0,0)];
+    }
+
+    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:UIEdgeInsetsMake(0,0,0,0)];
+    }
+}
+//cell即将展示的时候调用
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+</code></pre><p>weakSelf</p>
+<p>weak&amp;&amp;strong</p>
+<p>weak__</p>
+<pre><code>#define SHWeakSelf(type) __weak typeof(type) weak##type = type;
+#define SHStrongSelf(type) __strong typeof(type) type = weak##type;
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS开发/" rel="tag"># iOS开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/11/iOS小技巧总结/" rel="next" title="iOS小技巧总结">
+                <i class="fa fa-chevron-left"></i> iOS小技巧总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/27/iOS小方法小工具/" rel="prev" title="iOS小方法小工具">
+                iOS小方法小工具 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Ella" />
+            
+              <p class="site-author-name" itemprop="name">Ella</p>
+              <p class="site-description motion-element" itemprop="description">将来的你 一定会感激现在拼命的自己</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/60dc3c4c6c3d" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-book"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Ellerbe" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情站点
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://chanceli.com" title="ChanceLi" target="_blank">ChanceLi</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ella</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
