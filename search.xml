@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[读《HTTP图解》-Chapt 1]]></title>
     <url>%2F2019%2F03%2F06%2F%E8%AF%BB%E3%80%8AHTTP%E5%9B%BE%E8%A7%A3%E3%80%8B-Chapt-1%2F</url>
-    <content type="text"><![CDATA[因为是第一次认真的写读书笔记，不知道如何写起，就以《HTTP图解》的书本目录大概回忆总结一下。 第一章 了解Web及网络基础：主要讲解了TCP/IP协议族的分层管理以及各分层与HTTP关系密切的协议概念，URI和URL的区别以及定义 #####第一章 了解Web及网络基础##### 使用HTTP协议访问Web 发送HTTP请求 网络基础TCP/IP 与HTTP关系密切的IP、TCP和DNS协议以及各种协议与HTTP协议的关系 DNS服务提供域名到IP地址之间的解析服务。域名是让我们凡人看的，IP地址是一长串纯数字，较为复杂不好记，DNS服务将主机名.域名对应的IP地址找到然后传给计算机处理。 TCP提供可靠的字节流服务。三次握手，确保数据准确无误到达目标。 IP协议的作用是把数据包安全传送给对方。 URL和URI URI：统一资源标识符URL：统一资源定位符 我认为URI是资源访问协议中所有资源的某个资源地址，而URL是指向该资源目标的指针。]]></content>
+    <content type="text"><![CDATA[因为是第一次认真的写读书笔记，不知道如何写起，就以《HTTP图解》的书本目录大概回忆总结一下。 第一章 了解Web及网络基础：主要讲解了TCP/IP协议族的分层管理以及各分层与HTTP关系密切的协议概念，URI和URL的区别以及定义 第一章 了解Web及网络基础 使用HTTP协议访问Web 发送HTTP请求 网络基础TCP/IP 与HTTP关系密切的IP、TCP和DNS协议以及各种协议与HTTP协议的关系 DNS服务提供域名到IP地址之间的解析服务。域名是让我们凡人看的，IP地址是一长串纯数字，较为复杂不好记，DNS服务将主机名.域名对应的IP地址找到然后传给计算机处理。 TCP提供可靠的字节流服务。三次握手，确保数据准确无误到达目标。 IP协议的作用是把数据包安全传送给对方。 URL和URI URI：统一资源标识符URL：统一资源定位符 我认为URI是资源访问协议中所有资源的某个资源地址，而URL是指向该资源目标的指针。]]></content>
       <categories>
         <category>读书笔记</category>
       </categories>
@@ -34,17 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS-适配-iPhone-X、XR、XS、XS-Max]]></title>
-    <url>%2F2018%2F09%2F19%2FiOS-%E9%80%82%E9%85%8D-iPhone-X%E3%80%81XR%E3%80%81XS%E3%80%81XS-Max%2F</url>
-    <content type="text"><![CDATA[iOS 判断机型是否为 iPhone X、XR、XS、XS Max 的方法1234567891011if ([deviceString isEqualToString:@&quot;iPhone10,1&quot;]) return @&quot;国行(A1863)、日行(A1906)iPhone 8&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,4&quot;]) return @&quot;美版(Global/A1905)iPhone 8&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,2&quot;]) return @&quot;国行(A1864)、日行(A1898)iPhone 8 Plus&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,5&quot;]) return @&quot;美版(Global/A1897)iPhone 8 Plus&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,3&quot;]) return @&quot;国行(A1865)、日行(A1902)iPhone X&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,6&quot;]) return @&quot;美版(Global/A1901)iPhone X&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,2&quot;]) return @&quot;iPhone XS&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,4&quot;]) return @&quot;iPhone XS Max&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,6&quot;]) return @&quot;iPhone XS Max&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,8&quot;]) return @&quot;iPhone XR&quot;; 参考原文:史上最全的iOS各种设备信息获取总结 信息采集框架iPhone XR/iPhone XS Max启动图iPhone XR：828px x 1792pxiPhone XS Max: 1242px x 2688px 代码中判断是否是iPhone X时需要注意如果你以前是使用设备尺寸来判断iPhone X那就需要修改了，判断iPhone X主要是因为刘海的原因可能要做些特殊处理。鉴于iPhone X/XS/XR/XS Max底部都会有安全距离，所以可以利用safeAreaInsets.bottom &gt; 0.0来判断是否是iPhone X/XS/XR/XS Max。 safeAreaInsets支持iOS11及以后。 1#define IPHONE_X (@available(iOS 11.0, *)?[[[UIApplication sharedApplication] delegate] window].safeAreaInsets.bottom &gt; 0.0:NO ) 参考原文:适配iPhone XR/iPhone XS Max]]></content>
-      <categories>
-        <category>iOS开发</category>
-      </categories>
-      <tags>
-        <tag>iOS开发</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Xcode-10和iOS-12排雷]]></title>
     <url>%2F2018%2F09%2F19%2FXcode-10%E5%92%8CiOS-12%E6%8E%92%E9%9B%B7%2F</url>
     <content type="text"><![CDATA[今天刚升级到Xcode10，迫不及待运行项目，结果1S我就回到冰点，爆红点。网查发现解决方案。网查的时候发现还有个问题似乎出现概率也挺高的，我就汇总一下，节省之后可能浪费的时间。 雷区一、二是我自己出现的问题，其他还没有实测，如果没有解决你的问题，请自行找度娘。 雷区一：Multiple commands produce123error: Multiple commands produce &apos;/Users/xiaoyuan/Library/Developer/Xcode/DerivedData/Boobuz-gnxeuntgkenwgdgycqnvabqubafh/Build/Products/Debug-iphoneos/Boobuz.app&apos;:1) Target &apos;Boobuz&apos; has create directory command with output &apos;/Users/xiaoyuan/Library/Developer/Xcode/DerivedData/Boobuz-gnxeuntgkenwgdgycqnvabqubafh/Build/Products/Debug-iphoneos/Boobuz.app&apos;2) That command depends on command in Target &apos;Boobuz&apos;: script phase “[CP] Copy Pods Resources” 分析error内容，错误发生在Copy Pods Resources，而且与output有关，应该是使用了cocoapods导致的，尝试删除该项目target-Copy Pods Resources-Output Files，成功解决问题。参考解决方案：Xcode 10 beta3 Error: Multiple commands produce 雷区二 12ld: library not found for -lstdc++.6.0.9clang: error: linker command failed with exit code 1 (use -v to see invocation) 项目用到了c++，依赖了libstdc++.6.0.9.tbd,导致整个工程编译不通过，原因是苹果在XCode10和iOS12中移除了libstdc++这个库，由libc++这个库取而代之,苹果的解释是libstdc++已经标记为废弃有5年了，建议大家使用经过了llvm优化过并且全面支持C++11的libc++库。“libc++” C++ Standard Librarylibc++和libstdc++接下来更新这个库就好了，TARGETS—&gt;Build Phases—&gt;Link Binary With Libraries()直接删除，然后添加libc++解决。更多详情查看Xcode10和iOS12适配查找答案的时候发现报错ld: library not found for -lxxxx-ios-x.x.x之类的，可能在合并或者其他操作的时候，误删了这个库，试试在这个路径添加喽。 雷区三123:-1: Multiple commands produce &apos;/Users/.../Library/Developer/Xcode/DerivedData/.../Build/Products/Dev-iphonesimulator/TLYShyNavBar/TLYShyNavBar.framework/Info.plist&apos;:1) Target &apos;TLYShyNavBar&apos; has copy command from &apos;/Users/.../Desktop/Workspace/iOS/.../Pods/TLYShyNavBar/TLYShyNavBar/Info.plist&apos; to &apos;/Users/.../Library/Developer/Xcode/DerivedData/.../Build/Products/Dev-iphonesimulator/TLYShyNavBar/TLYShyNavBar.framework/Info.plist&apos;2) Target &apos;TLYShyNavBar&apos; has process command with input &apos;/Users/.../Desktop/Workspace/iOS/.../Pods/Target Support Files/TLYShyNavBar/Info.plist&apos; In Xcode, go to File-&gt;Project/Workspace settings. Change the build system to Legacy Build system.参考解决方案：Xcode10 Multiple commands produced error 雷区四这个项目中并未用到，直接删除了文件。]]></content>
@@ -56,9 +45,20 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[swift4进阶]]></title>
-    <url>%2F2018%2F09%2F19%2Fswift4%E8%BF%9B%E9%98%B6%2F</url>
-    <content type="text"><![CDATA[Swift 4.0 教程 三十天三十个 Swift 项目 三十天三十个 Swift 项目-简书]]></content>
+    <title><![CDATA[iOS-适配-iPhone-X、XR、XS、XS-Max]]></title>
+    <url>%2F2018%2F09%2F19%2FiOS-%E9%80%82%E9%85%8D-iPhone-X%E3%80%81XR%E3%80%81XS%E3%80%81XS-Max%2F</url>
+    <content type="text"><![CDATA[iOS 判断机型是否为 iPhone X、XR、XS、XS Max 的方法1234567891011if ([deviceString isEqualToString:@&quot;iPhone10,1&quot;]) return @&quot;国行(A1863)、日行(A1906)iPhone 8&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,4&quot;]) return @&quot;美版(Global/A1905)iPhone 8&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,2&quot;]) return @&quot;国行(A1864)、日行(A1898)iPhone 8 Plus&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,5&quot;]) return @&quot;美版(Global/A1897)iPhone 8 Plus&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,3&quot;]) return @&quot;国行(A1865)、日行(A1902)iPhone X&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,6&quot;]) return @&quot;美版(Global/A1901)iPhone X&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,2&quot;]) return @&quot;iPhone XS&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,4&quot;]) return @&quot;iPhone XS Max&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,6&quot;]) return @&quot;iPhone XS Max&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,8&quot;]) return @&quot;iPhone XR&quot;; 参考原文:史上最全的iOS各种设备信息获取总结 信息采集框架iPhone XR/iPhone XS Max启动图iPhone XR：828px x 1792pxiPhone XS Max: 1242px x 2688px 代码中判断是否是iPhone X时需要注意如果你以前是使用设备尺寸来判断iPhone X那就需要修改了，判断iPhone X主要是因为刘海的原因可能要做些特殊处理。鉴于iPhone X/XS/XR/XS Max底部都会有安全距离，所以可以利用safeAreaInsets.bottom &gt; 0.0来判断是否是iPhone X/XS/XR/XS Max。 safeAreaInsets支持iOS11及以后。 1#define IPHONE_X (@available(iOS 11.0, *)?[[[UIApplication sharedApplication] delegate] window].safeAreaInsets.bottom &gt; 0.0:NO ) 参考原文:适配iPhone XR/iPhone XS Max]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS开发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[全面的-gitignore模板集合]]></title>
+    <url>%2F2018%2F09%2F19%2F%E5%85%A8%E9%9D%A2%E7%9A%84-gitignore%E6%A8%A1%E6%9D%BF%E9%9B%86%E5%90%88%2F</url>
+    <content type="text"><![CDATA[对于不同的编程语言、不同的编译系统、不同的构建工具，很难找到所有需要添加ignore的文件，经常会出现各种遗漏等选择性错误。如果能有一个东西，就像是一个模板，记录所有环境下的ignore信息，在需要的时候便于查询，那就太合适不过了。全面的ignore集合 原简书地址]]></content>
       <categories>
         <category>iOS开发</category>
       </categories>
@@ -78,9 +78,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[全面的-gitignore模板集合]]></title>
-    <url>%2F2018%2F09%2F19%2F%E5%85%A8%E9%9D%A2%E7%9A%84-gitignore%E6%A8%A1%E6%9D%BF%E9%9B%86%E5%90%88%2F</url>
-    <content type="text"><![CDATA[对于不同的编程语言、不同的编译系统、不同的构建工具，很难找到所有需要添加ignore的文件，经常会出现各种遗漏等选择性错误。如果能有一个东西，就像是一个模板，记录所有环境下的ignore信息，在需要的时候便于查询，那就太合适不过了。全面的ignore集合 原简书地址]]></content>
+    <title><![CDATA[swift4进阶]]></title>
+    <url>%2F2018%2F09%2F19%2Fswift4%E8%BF%9B%E9%98%B6%2F</url>
+    <content type="text"><![CDATA[Swift 4.0 教程 三十天三十个 Swift 项目 三十天三十个 Swift 项目-简书]]></content>
       <categories>
         <category>iOS开发</category>
       </categories>
