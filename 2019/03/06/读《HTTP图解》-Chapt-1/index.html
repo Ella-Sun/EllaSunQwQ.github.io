@@ -3,7 +3,7 @@
 
 
 
-<html class="theme-next pisces" lang="zh-Hans">
+<html class="theme-next muse" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -51,13 +51,13 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=5.1.4">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
@@ -87,7 +87,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/525624-ea041a3a492363e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/525624-e704a3ca56ae2d9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400">
-<meta property="og:updated_time" content="2019-03-06T08:44:19.000Z">
+<meta property="og:updated_time" content="2019-03-07T02:56:31.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读《HTTP图解》-Chapt 1">
 <meta name="twitter:description" content="因为是第一次认真的写读书笔记，不知道如何写起，就以《HTTP图解》的书本目录大概回忆总结一下。  第一章 了解Web及网络基础：主要讲解了TCP/IP协议族的分层管理以及各分层与HTTP关系密切的协议概念，URI和URL的区别以及定义">
@@ -99,7 +99,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Muse',
     version: '5.1.4',
     sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -151,7 +151,14 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta custom-logo">
+    
+      <div class="site-meta-headline">
+        <a>
+          <img class="custom-logo-image" src="https://upload-images.jianshu.io/upload_images/525624-e7bd0fe9bd8f7e70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/200"
+               alt="Ella"/>
+        </a>
+      </div>
     
 
     <div class="custom-logo-site-title">
@@ -198,6 +205,36 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             目录
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -340,8 +377,8 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>本文总阅读量
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            <span class="page-pv"><i class="fa fa-file-o"></i>阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -356,7 +393,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  318
                 </span>
               
 
@@ -372,7 +409,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  
+                  1
                 </span>
               
             </div>
@@ -399,23 +436,15 @@
 </blockquote>
 <a id="more"></a>
 <p>第一章 了解Web及网络基础</p>
-<ol>
-<li>使用HTTP协议访问Web</li>
-</ol>
+<p>1.1 使用HTTP协议访问Web</p>
 <p>发送HTTP请求</p>
-<ol>
-<li>网络基础TCP/IP</li>
-</ol>
+<p>1.2 网络基础TCP/IP</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/525624-ea041a3a492363e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt="TCP/IP分层管理.png"></p>
-<ol>
-<li>与HTTP关系密切的IP、TCP和DNS协议以及各种协议与HTTP协议的关系</li>
-</ol>
+<p>1.3 与HTTP关系密切的IP、TCP和DNS协议以及各种协议与HTTP协议的关系</p>
 <p>DNS服务提供域名到IP地址之间的解析服务。域名是让我们凡人看的，IP地址是一长串纯数字，较为复杂不好记，DNS服务将主机名.域名对应的IP地址找到然后传给计算机处理。</p>
 <p>TCP提供可靠的字节流服务。三次握手，确保数据准确无误到达目标。</p>
 <p>IP协议的作用是把数据包安全传送给对方。</p>
-<ol>
-<li>URL和URI</li>
-</ol>
+<p>1.4 URL和URI</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/525624-e704a3ca56ae2d9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt="URI.png"></p>
 <p>URI：统一资源标识符<br>URL：统一资源定位符</p>
 <p>我认为URI是资源访问协议中所有资源的<code>某个资源地址</code>，而URL是指向该资源目标的<code>指针</code>。</p>
@@ -628,15 +657,9 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -647,15 +670,15 @@
 
   
     <span class="site-uv">
-      <i class="fa fa-user"></i>本站访客数
+      <i class="fa fa-user"></i>访问人数
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      人次
+      人
     </span>
   
 
   
     <span class="site-pv">
-      <i class="fa fa-eye"></i>本站总访问量
+      <i class="fa fa-eye"></i>总访问量
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
       次
     </span>
@@ -755,13 +778,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
