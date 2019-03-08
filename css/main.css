@@ -1125,19 +1125,6 @@ pre .javascript .function {
   line-height: 36px;
   vertical-align: top;
 }
-.custom-logo-image {
-/* start*/
-  border-radius: 50%;
-  transition: 2.5s all;
-/* end */
-}
-.custom-logo-image:hover {
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  transform: rotate(360deg);
-}
 .site-title {
   display: inline-block;
   vertical-align: top;
@@ -1839,7 +1826,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6e95ff;
+  background: #fa93ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2632,6 +2619,16 @@ embed {
   padding: 5px;
   max-width: 150px;
   background: #fff;
+/* start*/
+  border-radius: 50%;
+  transition: 2.5s all;
+}
+.custom-logo-image:hover {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 @media (max-width: 767px) {
   .site-nav {
