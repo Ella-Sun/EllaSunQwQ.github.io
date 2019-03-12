@@ -86,7 +86,7 @@
 <meta property="og:description" content="第二章 简单的HTTP协议主要讲解HTTP的请求和响应报文；HTTP请求方法；持久链接和管线化HTTP使用Cookie进行状态管理。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/525624-eff90bf63bcd3cc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
-<meta property="og:updated_time" content="2019-03-12T07:48:45.513Z">
+<meta property="og:updated_time" content="2019-03-12T07:57:41.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读《HTTP图解》-Chapt 2">
 <meta name="twitter:description" content="第二章 简单的HTTP协议主要讲解HTTP的请求和响应报文；HTTP请求方法；持久链接和管线化HTTP使用Cookie进行状态管理。">
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  410
+                  409
                 </span>
               
 
@@ -434,15 +434,52 @@
 </blockquote>
 <a id="more"></a>
 <h5 id="第二章-简单的HTTP协议"><a href="#第二章-简单的HTTP协议" class="headerlink" title="第二章 简单的HTTP协议"></a>第二章 简单的HTTP协议</h5><ol>
-<li><p>HTTP请求和响应报文结构</p>
-<blockquote><p>请求URI(e.g./form/entry)、<br>协议版本(e.g.HTTP/1.1)、<br>可选的请求首部字段(e.g.Host:/Connection等)、<br>内容实体(e.g.name=ueno&amp;age=7?)</p>
+<li>HTTP请求和响应报文结构<blockquote><p>请求URI(e.g./form/entry)、<br>协议版本(e.g.HTTP/1.1)、<br>可选的请求首部字段(e.g.Host:/Connection等)、<br>内容实体(e.g.name=ueno&amp;age=7?)</p>
 </blockquote>
 <blockquote><p>HTTP响应报文基本结构：<br>协议版本(e.g.HTTP/1.1)、<br>状态码(e.g.)、<br>用以解释状态码的原因短语(e.g.)、<br>可选的响应首部字段以及实体主体(e.g.)</p>
-</blockquote>
-</li>
-<li><p>HTTP请求方法<br>以前经常用到是POST、GET方法，其实HTTP/1.0总共支持10种方法：</p>
-<p>|方法|优缺点|<br>|:-:|:-:|<br>|POST、GET||<br>|HEAD||<br>|PUT、DELETE|不带验证机制，不安全|<br>|OPTIONS||<br>|TRACE|容易引起跨站追踪攻击|<br>|CONNECT|主要使用SSLa需要经过网络隧道传输|<br>|LINK、UNLINK|已经被HTTP/1.1废弃|<br><img src="https://upload-images.jianshu.io/upload_images/525624-eff90bf63bcd3cc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt=""></p>
-</li>
+</blockquote></li>
+<li>HTTP请求方法<br>以前经常用到是POST、GET方法，其实HTTP/1.0总共支持10种方法：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">优缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">POST、GET</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">HEAD</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">PUT、DELETE</td>
+<td style="text-align:center">不带验证机制，不安全</td>
+</tr>
+<tr>
+<td style="text-align:center">OPTIONS</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TRACE</td>
+<td style="text-align:center">容易引起跨站追踪攻击</td>
+</tr>
+<tr>
+<td style="text-align:center">CONNECT</td>
+<td style="text-align:center">主要使用SSLa需要经过网络隧道传输</td>
+</tr>
+<tr>
+<td style="text-align:center">LINK、UNLINK</td>
+<td style="text-align:center">已经被HTTP/1.1废弃</td>
+</tr>
+</tbody>
+</table>
+<p> <img src="https://upload-images.jianshu.io/upload_images/525624-eff90bf63bcd3cc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt=""></p>
+<ol>
 <li>持久化连接<br>HTTP协议初始，每进行一次HTTP通信就断开一次。<br>持久连接，减少了TCP连接的重复建立和断开所造成的额外开销，减轻服务器端负载。同时，减少开销的那部分时间，使得HTTP请求和响应更快，WEB页面的显示速度提高。<br>管线化，同时并行发送多个请求。</li>
 <li>状态管理Cookie—一笔带过<br>Cookie技术通过在请求和响应报文中写入Cookie信息来控制客户端的状态。比如登录认证。<br>HTTP是无状态协议。无法根据之前的状态进行本次的请求处理。</li>
 </ol>
