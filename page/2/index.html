@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sunhong.vip/2018/09/19/swift4进阶/">
+    <link itemprop="mainEntityOfPage" href="http://www.sunhong.vip/2018/09/19/Xcode-10和iOS-12排雷/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ella">
@@ -320,7 +320,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/19/swift4进阶/" itemprop="url">swift4进阶</a></h1>
+                <a class="post-title-link" href="/2018/09/19/Xcode-10和iOS-12排雷/" itemprop="url">Xcode-10和iOS-12排雷</a></h1>
         
 
         <div class="post-meta">
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  25
+                  585
                 </span>
               
 
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -424,17 +424,11 @@
 
       
         
-          
-          
-Swift 4.0 教程
-三十天三十个 Swift 项目
-三十天三十个 Swift 项目-简书
-
-
-          
+          <p>今天刚升级到Xcode10，迫不及待运行项目，结果1S我就回到冰点，爆红点。<br>网查发现解决方案。网查的时候发现还有个问题似乎出现概率也挺高的，我就汇总一下，节省之后可能浪费的时间。</p>
+<p>  <em>雷区一、二是我自己出现的问题，其他还没有实测，如果没有解决你的问题，请自行找度娘。</em></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/19/swift4进阶/#more" rel="contents">
+            <a class="btn" href="/2018/09/19/Xcode-10和iOS-12排雷/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -489,7 +483,7 @@ Swift 4.0 教程
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sunhong.vip/2018/09/19/全面的-gitignore模板集合/">
+    <link itemprop="mainEntityOfPage" href="http://www.sunhong.vip/2018/09/19/iOS-适配-iPhone-X、XR、XS、XS-Max/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ella">
@@ -508,7 +502,7 @@ Swift 4.0 教程
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/19/全面的-gitignore模板集合/" itemprop="url">全面的-gitignore模板集合</a></h1>
+                <a class="post-title-link" href="/2018/09/19/iOS-适配-iPhone-X、XR、XS、XS-Max/" itemprop="url">iOS-适配-iPhone-X、XR、XS、XS-Max</a></h1>
         
 
         <div class="post-meta">
@@ -574,7 +568,7 @@ Swift 4.0 教程
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  107
+                  348
                 </span>
               
 
@@ -612,10 +606,10 @@ Swift 4.0 教程
 
       
         
-          <p>对于不同的编程语言、不同的编译系统、不同的构建工具，很难找到所有需要添加ignore的文件，经常会出现各种遗漏等选择性错误。如果能有一个东西，就像是一个模板，记录所有环境下的ignore信息，在需要的时候便于查询，那就太合适不过了。<br><a href="https://github.com/github/gitignore" target="_blank" rel="external">全面的ignore集合</a></p>
+          <p>iOS 判断机型是否为 iPhone X、XR、XS、XS Max 的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">if ([deviceString isEqualToString:@&quot;iPhone10,1&quot;])   return @&quot;国行(A1863)、日行(A1906)iPhone 8&quot;;</div><div class="line">if ([deviceString isEqualToString:@&quot;iPhone10,4&quot;])   return @&quot;美版(Global/A1905)iPhone 8&quot;;</div><div class="line">if ([deviceString isEqualToString:@&quot;iPhone10,2&quot;])   return @&quot;国行(A1864)、日行(A1898)iPhone 8 Plus&quot;;</div><div class="line">if ([deviceString isEqualToString:@&quot;iPhone10,5&quot;])   return @&quot;美版(Global/A1897)iPhone 8 Plus&quot;;</div><div class="line">if ([deviceString isEqualToString:@&quot;iPhone10,3&quot;])   return @&quot;国行(A1865)、日行(A1902)iPhone X&quot;;</div><div class="line">if ([deviceString isEqualToString:@&quot;iPhone10,6&quot;])   return @&quot;美版(Global/A1901)iPhone X&quot;;</div><div class="line"></div><div class="line">if ([deviceString isEqualToString:@&quot;iPhone11,2&quot;])   return @&quot;iPhone XS&quot;;</div><div class="line">if ([deviceString isEqualToString:@&quot;iPhone11,4&quot;])   return @&quot;iPhone XS Max&quot;;</div><div class="line">if ([deviceString isEqualToString:@&quot;iPhone11,6&quot;])   return @&quot;iPhone XS Max&quot;;</div><div class="line">if ([deviceString isEqualToString:@&quot;iPhone11,8&quot;])   return @&quot;iPhone XR&quot;;</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/19/全面的-gitignore模板集合/#more" rel="contents">
+            <a class="btn" href="/2018/09/19/iOS-适配-iPhone-X、XR、XS、XS-Max/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

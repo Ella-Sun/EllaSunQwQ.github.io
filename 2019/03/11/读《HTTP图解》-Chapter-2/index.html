@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="HTTP," />
 
 
 
@@ -77,16 +77,20 @@
 
 
 
-<meta name="description" content="将来的你 一定会感激现在拼命的自己">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ella">
-<meta property="og:url" content="http://www.sunhong.vip/tags/HTTP/index.html">
+<meta name="description" content="第二章 简单的HTTP协议主要讲解HTTP的请求和响应报文;HTTP请求方法;持久链接和管线化;HTTP使用Cookie进行状态管理。">
+<meta name="keywords" content="HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读《HTTP图解》-Chapter 2">
+<meta property="og:url" content="http://www.sunhong.vip/2019/03/11/读《HTTP图解》-Chapter-2/index.html">
 <meta property="og:site_name" content="Ella">
-<meta property="og:description" content="将来的你 一定会感激现在拼命的自己">
+<meta property="og:description" content="第二章 简单的HTTP协议主要讲解HTTP的请求和响应报文;HTTP请求方法;持久链接和管线化;HTTP使用Cookie进行状态管理。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/525624-eff90bf63bcd3cc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:updated_time" content="2019-03-13T08:05:29.254Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ella">
-<meta name="twitter:description" content="将来的你 一定会感激现在拼命的自己">
+<meta name="twitter:title" content="读《HTTP图解》-Chapter 2">
+<meta name="twitter:description" content="第二章 简单的HTTP协议主要讲解HTTP的请求和响应报文;HTTP请求方法;持久链接和管线化;HTTP使用Cookie进行状态管理。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/525624-eff90bf63bcd3cc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
 
 
 
@@ -116,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.sunhong.vip/tags/HTTP/"/>
+  <link rel="canonical" href="http://www.sunhong.vip/2019/03/11/读《HTTP图解》-Chapter-2/"/>
 
 
 
 
 
-  <title>标签: HTTP | Ella</title>
+  <title>读《HTTP图解》-Chapter 2 | Ella</title>
   
 
 
@@ -141,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -286,82 +290,289 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>HTTP<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sunhong.vip/2019/03/11/读《HTTP图解》-Chapter-2/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ella">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ella">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/03/11/读《HTTP图解》-Chapter-2/" itemprop="url">
-              
-                <span itemprop="name">读《HTTP图解》-Chapter 2</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">读《HTTP图解》-Chapter 2</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-11T17:26:13+08:00"
-              content="2019-03-11" >
-          03-11
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-11T17:26:13+08:00">
+                2019-03-11
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  409
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/06/读《HTTP图解》-Chapter-1/" itemprop="url">
-              
-                <span itemprop="name">读《HTTP图解》-Chapter 1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-06T09:43:38+08:00"
-              content="2019-03-06" >
-          03-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <blockquote>
+<p>第二章 简单的HTTP协议<br>主要讲解HTTP的请求和响应报文;<br>HTTP请求方法;<br>持久链接和管线化;<br>HTTP使用Cookie进行状态管理。</p>
+</blockquote>
+<a id="more"></a>
+<h5 id="第二章-简单的HTTP协议"><a href="#第二章-简单的HTTP协议" class="headerlink" title="第二章 简单的HTTP协议"></a>第二章 简单的HTTP协议</h5><ol>
+<li>HTTP请求和响应报文结构<blockquote><p>请求URI(e.g./form/entry)、<br>协议版本(e.g.HTTP/1.1)、<br>可选的请求首部字段(e.g.Host:/Connection等)、<br>内容实体(e.g.name=ueno&amp;age=7?)</p>
+</blockquote>
+<blockquote><p>HTTP响应报文基本结构：<br>协议版本(e.g.HTTP/1.1)、<br>状态码(e.g.)、<br>用以解释状态码的原因短语(e.g.)、<br>可选的响应首部字段以及实体主体(e.g.)</p>
+</blockquote></li>
+<li>HTTP请求方法<br>以前经常用到是POST、GET方法，其实HTTP/1.0总共支持10种方法：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">优缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">POST、GET</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">HEAD</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">PUT、DELETE</td>
+<td style="text-align:center">不带验证机制，不安全</td>
+</tr>
+<tr>
+<td style="text-align:center">OPTIONS</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TRACE</td>
+<td style="text-align:center">容易引起跨站追踪攻击</td>
+</tr>
+<tr>
+<td style="text-align:center">CONNECT</td>
+<td style="text-align:center">主要使用SSLa需要经过网络隧道传输</td>
+</tr>
+<tr>
+<td style="text-align:center">LINK、UNLINK</td>
+<td style="text-align:center">已经被HTTP/1.1废弃</td>
+</tr>
+</tbody>
+</table>
+<p> <img src="https://upload-images.jianshu.io/upload_images/525624-eff90bf63bcd3cc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt=""></p>
+<ol>
+<li>持久化连接<br>HTTP协议初始，每进行一次HTTP通信就断开一次。<br>持久连接，减少了TCP连接的重复建立和断开所造成的额外开销，减轻服务器端负载。同时，减少开销的那部分时间，使得HTTP请求和响应更快，WEB页面的显示速度提高。<br>管线化，同时并行发送多个请求。</li>
+<li>状态管理Cookie—一笔带过<br>Cookie技术通过在请求和响应报文中写入Cookie信息来控制客户端的状态。比如登录认证。<br>HTTP是无状态协议。无法根据之前的状态进行本次的请求处理。</li>
+</ol>
 
       
     </div>
+    
+    
+    
 
+    <div>
+     
+         <div>
+    
+        <div style="text-align:left;font-size:14px;">
+<p style="text-align:center;color: #ccc;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</p>
+<p><b>我的传送门：</b><a href="https://www.sunhong.vip/">博客</a>、<a href="https://www.jianshu.com/u/60dc3c4c6c3d">简书</a>、<a href="https://github.com/EllaSunQwQ">GitHub</a></p>
+</div>
+    
+</div>
+     
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Ella
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.sunhong.vip/2019/03/11/读《HTTP图解》-Chapter-2/" title="读《HTTP图解》-Chapter 2">http://www.sunhong.vip/2019/03/11/读《HTTP图解》-Chapter-2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/08/Hexo-Next-在文章末尾添加自定义文字/" rel="next" title="Hexo+NexT 在文章结尾添加自定义文字">
+                <i class="fa fa-chevron-left"></i> Hexo+NexT 在文章结尾添加自定义文字
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -369,6 +580,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -389,8 +604,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -484,6 +708,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#第二章-简单的HTTP协议"><span class="nav-number">1.</span> <span class="nav-text">第二章 简单的HTTP协议</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -633,6 +873,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
