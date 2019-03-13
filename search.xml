@@ -12,6 +12,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Hexo+NexT 在文章结尾添加自定义文字]]></title>
+    <url>%2F2019%2F03%2F08%2FHexo-Next-%E5%9C%A8%E6%96%87%E7%AB%A0%E6%9C%AB%E5%B0%BE%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%87%E5%AD%97%2F</url>
+    <content type="text"><![CDATA[我想在博客的每一篇文章末尾添加固定字段或者链接，实现像版权声明那种自动化添加。 博客文章添加了很多之后，我就想在每一篇自己的文章下方添加一些个人文章的地址链接。但是如果每一篇都去主动添加相同的字段，感觉太机械了，既然，文章的末尾可以自动添加版权声明，那么写一个类似版权声明的自动添加固定文字的模板不就可以了。 ###新建文件，添加div模块 your blog—&gt;themes—&gt;next—&gt;layout—&gt;_macro中 新建post-end-link.swig文件 12345678&lt;div&gt; &#123;% if not is_index %&#125; &lt;div style=&quot;text-align:left;font-size:14px;&quot;&gt;&lt;p style=&quot;text-align:center;color: #ccc;&quot;&gt;-------------本文结束&lt;i class=&quot;fa fa-paw&quot;&gt;&lt;/i&gt;感谢您的阅读-------------&lt;/p&gt;&lt;p&gt;&lt;b&gt;我的传送门：&lt;/b&gt;&lt;a href=&quot;https://www.sunhong.vip/&quot;&gt;博客&lt;/a&gt;、&lt;a href=&quot;https://www.jianshu.com/u/60dc3c4c6c3d&quot;&gt;简书&lt;/a&gt;、&lt;a href=&quot;https://github.com/EllaSunQwQ&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt; &lt;/div&gt; &#123;% endif %&#125;&lt;/div&gt; ###修改post.swig文件 把写的div模块添加到post布局模板中，打开post.swig文件your blog—&gt;themes—&gt;next—&gt;layout—&gt;_macro—&gt; post.swig 添加的代码块12345&lt;div&gt; &#123;% if not is_index %&#125; &#123;% include 'post-end-link.swig' %&#125; &#123;% endif %&#125; &lt;/div&gt; 把该代码块添加到post-body块下方和post-footer块上方。如下图位置。 ###修改_config.yml文件 打开主题配置文件_config.yml，在末尾添加： 12post_end_link: # 添加的文件名 enabled: true 参考：Hexo NexT主题内给每篇文章后添加结束标语HTML标签参考：http://www.w3school.com.cn/tags/tag_a.asp]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo+Next 主页以及侧边栏头像旋转]]></title>
     <url>%2F2019%2F03%2F08%2FHexo-Next-%E4%B8%BB%E9%A1%B5%E4%BB%A5%E5%8F%8A%E4%BE%A7%E8%BE%B9%E6%A0%8F%E5%A4%B4%E5%83%8F%E6%97%8B%E8%BD%AC%2F</url>
     <content type="text"><![CDATA[最近优化自己的博客，换了个NexT主题。使用的是NexT主题的Muse样式。我的博客在进行了NexT主题的安装和常规设置成功之后。这里讲解如何在首页author上方显示圆形头像，在鼠标放上的时候头像进行旋转以及侧边栏头像的圆形和旋转设置。 主页显示头像 主页设置显示头像Muse样式默认主页是不显示头型的，只显示作者、简介和菜单。打开主题配置文件Blog—&gt;themes—&gt;next—&gt;_config.yml，找到custom_logo字段1.1 打开主页header上头像的显示，将enabled设为true.1.2 image必须是图片的网络地址实现了头像显示 现在首页头部显示头像是正方形的，根据字段custom-logo，找到NexT主题关于custom-logo的设置。发现了_logo.styl文件，目录为Blog—&gt;themes—&gt;next—&gt;source—&gt;css—&gt;_schemes—&gt;Muse—&gt;_logo.styl要实现圆形显示，而且实现旋转效果。对于构建网页来说，CSS文件是控制网页内容如何显示的。打开_logo.styl文件，发现custom-logo-image字段，猜测应该就是对应头像了，增加对于头像custom-logo-image的设置。添加代码如下代码即可 1234567891011121314.custom-logo-image &#123; margin: 0 auto; padding: 5px; max-width: 150px; background: white; /* start*/ border-radius: 50% #头像圆角 transition: 2.5s all; #旋转动画时间&#125;.custom-logo-image:hover &#123; transform: rotate(360deg); #旋转角度&#125;/* end */ 在Blog目录重启服务即可实现。最终实现效果展示： 侧边栏头像旋转 侧边栏显示的头像设置成圆形，并且鼠标滑过头像旋转的设置和主页的头像设置差不多。进入CSS文件，找到关于sidebar中关于作者的设置文件。NexT主题关于sidebar的基础设置位于文件夹_common中，改变此文件夹内文件，会改变所有主题的相对应设置。 打开Blog—&gt;themes—&gt;next—&gt;source—&gt;css—&gt;_common—&gt;components—&gt;sidebar—&gt;sidebar-author.styl 修改关于.site-author-image的设置，改成如下代码 1234567891011121314151617.site-author-image &#123; display: block; margin: 0 auto; padding: $site-author-image-padding; max-width: $site-author-image-width; height: $site-author-image-height; border: $site-author-image-border-width solid $site-author-image-border-color; /* start*/ border-radius: 60% transition: 2.5s all;&#125;.site-author-image:hover &#123; background-color: #55DAE1; #背景颜色 transform: rotate(360deg);&#125;/* end */ 重新启动服务器Blog:hexo s]]></content>
@@ -42,6 +53,17 @@
       </categories>
       <tags>
         <tag>iOS开发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[iPhone自定义铃声最新攻略]]></title>
+    <url>%2F2019%2F02%2F21%2FiPhone%E8%87%AA%E5%AE%9A%E4%B9%89%E9%93%83%E5%A3%B0%E6%9C%80%E6%96%B0%E6%94%BB%E7%95%A5%2F</url>
+    <content type="text"><![CDATA[新升级了一款手机，但是以前自定义的铃声没同步，尴尬癌晚期，必须滴，和原来一样啊。 ~~ iTunes改版更新，铃声选项找不到了，网上搜索了很多方法，可是都卡在了最后一步，同步到手机音乐，铃声里还是空的。 ~~如果你已经到达这一步，请直接跳过铃声文件格式转换的前6步，跳转到本教程铃声设置，设置手机铃声。 硬件：Mac/iPhone*Tool： iTunes 直接上步骤： ###将音乐文件转换为铃声所需的格式 下载好你想要的铃声音乐，把音乐文件放在桌面（或者任何你可以找得到的文件中）。 打开Mac自带的iTunes，找到音乐，然后找到之前下载到电脑上的那些铃声音乐文件，comment+A对文件全部选择，直接拖进歌曲资料库中。 拖进资料库中显示的样子： 点击歌曲文件后...-&gt;歌曲信息-&gt;选项-&gt;设置开始和停止时间（时间间隔小于40s,iphone最长只支持40s的铃声文件.超过时间无法设置成功） 点击选中铃声文件-&gt;点击itunes左上方的文件按钮-&gt;转换-&gt;转换为ACC版本 得到一个文件名相同时间为40秒的音乐文件-&gt;右键选择在“finder/访达”中显示-&gt;直接找到这个m4a.文件拖至桌面。将此文件重命名，将后缀m4a.直接改为 m4r.弹窗点击使用m4r. 文件格式设置完成 ###铃声设置 点击itunes上手机按钮（确保手机数据线连接电脑） 拷贝刚才转换为.m4r文件格式文件。 点击选中我的设备目录上目录下的铃声，点击右侧界面随机播放所有内容后...,点击粘贴。即可完成。]]></content>
+      <categories>
+        <category>iPhone</category>
+      </categories>
+      <tags>
+        <tag>iPhone</tag>
       </tags>
   </entry>
   <entry>
