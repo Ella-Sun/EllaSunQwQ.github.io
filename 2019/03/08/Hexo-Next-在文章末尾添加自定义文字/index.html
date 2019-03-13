@@ -77,19 +77,19 @@
 
 
 
-<meta name="description" content="我想在博客的每一篇文章末尾添加固定字段或者链接，实现像版权声明那种自动化添加。">
+<meta name="description" content="博客文章添加了很多之后，我就想在每一篇自己的文章下方添加一些个人文章的地址链接。但是如果每一篇都去主动添加相同的字段，感觉太机械了，既然，文章的末尾可以自动添加版权声明，那么写一个类似版权声明的自动添加固定文字的模板不就可以了。">
 <meta name="keywords" content="blog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo+NexT 在文章结尾添加自定义文字">
 <meta property="og:url" content="http://www.sunhong.vip/2019/03/08/Hexo-Next-在文章末尾添加自定义文字/index.html">
 <meta property="og:site_name" content="Ella">
-<meta property="og:description" content="我想在博客的每一篇文章末尾添加固定字段或者链接，实现像版权声明那种自动化添加。">
+<meta property="og:description" content="博客文章添加了很多之后，我就想在每一篇自己的文章下方添加一些个人文章的地址链接。但是如果每一篇都去主动添加相同的字段，感觉太机械了，既然，文章的末尾可以自动添加版权声明，那么写一个类似版权声明的自动添加固定文字的模板不就可以了。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/525624-8020f93b9187fdfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-03-13T02:57:22.247Z">
+<meta property="og:updated_time" content="2019-03-13T03:12:44.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+NexT 在文章结尾添加自定义文字">
-<meta name="twitter:description" content="我想在博客的每一篇文章末尾添加固定字段或者链接，实现像版权声明那种自动化添加。">
+<meta name="twitter:description" content="博客文章添加了很多之后，我就想在每一篇自己的文章下方添加一些个人文章的地址链接。但是如果每一篇都去主动添加相同的字段，感觉太机械了，既然，文章的末尾可以自动添加版权声明，那么写一个类似版权声明的自动添加固定文字的模板不就可以了。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/525624-8020f93b9187fdfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  451
+                  414
                 </span>
               
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
                 </span>
               
             </div>
@@ -430,19 +430,21 @@
 
       
         <blockquote>
-<p>我想在博客的每一篇文章末尾添加固定字段或者链接，实现像版权声明那种自动化添加。</p>
+<p>博客文章添加了很多之后，我就想在每一篇自己的文章下方添加一些个人文章的地址链接。但是如果每一篇都去主动添加相同的字段，感觉太机械了，既然，文章的末尾可以自动添加版权声明，那么写一个类似版权声明的自动添加固定文字的模板不就可以了。</p>
 </blockquote>
 <a id="more"></a>
-<p>博客文章添加了很多之后，我就想在每一篇自己的文章下方添加一些个人文章的地址链接。但是如果每一篇都去主动添加相同的字段，感觉太机械了，既然，文章的末尾可以自动添加版权声明，那么写一个类似版权声明的自动添加固定文字的模板不就可以了。</p>
-<p>###新建文件，添加div模块</p>
+<h3>新建文件，添加div模块</h3>
+
 <p><code>your blog—&gt;themes—&gt;next—&gt;layout—&gt;_macro</code>中 新建<code>post-end-link.swig</code>文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &#123;% if not is_index %&#125;</div><div class="line">        &lt;div style=&quot;text-align:left;font-size:14px;&quot;&gt;</div><div class="line">&lt;p style=&quot;text-align:center;color: #ccc;&quot;&gt;-------------本文结束&lt;i class=&quot;fa fa-paw&quot;&gt;&lt;/i&gt;感谢您的阅读-------------&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;b&gt;我的传送门：&lt;/b&gt;&lt;a href=&quot;https://www.sunhong.vip/&quot;&gt;博客&lt;/a&gt;、&lt;a href=&quot;https://www.jianshu.com/u/60dc3c4c6c3d&quot;&gt;简书&lt;/a&gt;、&lt;a href=&quot;https://github.com/EllaSunQwQ&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &#123;% endif %&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>###修改<code>post.swig</code>文件</p>
+<h3>修改<code>post.swig</code>文件</h3>
+
 <p>把写的div模块添加到post布局模板中，打开<code>post.swig</code>文件<br><code>your blog—&gt;themes—&gt;next—&gt;layout—&gt;_macro—&gt; post.swig</code></p>
 <p>添加的代码块<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">div</span>&gt;</div><div class="line">    &#123;% if not is_index %&#125;</div><div class="line">        &#123;% include 'post-end-link.swig' %&#125;</div><div class="line">    &#123;% endif %&#125;</div><div class="line">   &lt;/div&gt;</div></pre></td></tr></table></figure></p>
 <p>把该代码块添加到<code>post-body</code>块下方和<code>post-footer</code>块上方。如下图位置。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/525624-8020f93b9187fdfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="post.swig.png"></p>
-<p>###修改<code>_config.yml</code>文件</p>
+<h3>修改<code>_config.yml</code>文件</h3>
+
 <p>打开主题配置文件<code>_config.yml</code>，在末尾添加：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">post_end_link</span>: # 添加的文件名</div><div class="line">  <span class="selector-tag">enabled</span>: <span class="selector-tag">true</span></div></pre></td></tr></table></figure>
 <p>参考：<a href="https://asdfv1929.github.io/2018/01/28/add-the-end/" target="_blank" rel="external">Hexo NexT主题内给每篇文章后添加结束标语</a><br>HTML标签参考：<a href="http://www.w3school.com.cn/tags/tag_a.asp" target="_blank" rel="external">http://www.w3school.com.cn/tags/tag_a.asp</a></p>
@@ -571,8 +573,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -666,6 +677,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">新建文件，添加div模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">修改post.swig文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">修改_config.yml文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
