@@ -77,16 +77,21 @@
 
 
 
-<meta name="description" content="将来的你 一定会感激现在拼命的自己">
-<meta property="og:type" content="website">
+<meta name="description" content="iOS中对于xib创建的viewcontroller国际化和其他的纯代码国际化没有区别。注意：国际化之后xib新添加控件，相应的国际化string文件不更新，那如何找到新空间的ObjectID呢？控件ObjectID的解决方法：  启动终端，找到并进入项目文件夹中Base.lproj文件夹。例如：cd /Users/sun/Desktop/InternationalDemo/Internation">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Ella">
-<meta property="og:url" content="http://www.sunhong.vip/archives/2016/09/index.html">
+<meta property="og:url" content="http://www.sunhong.vip/2019/07/08/iOS-xib-国际化新增控件问题/index.html">
 <meta property="og:site_name" content="Ella">
-<meta property="og:description" content="将来的你 一定会感激现在拼命的自己">
+<meta property="og:description" content="iOS中对于xib创建的viewcontroller国际化和其他的纯代码国际化没有区别。注意：国际化之后xib新添加控件，相应的国际化string文件不更新，那如何找到新空间的ObjectID呢？控件ObjectID的解决方法：  启动终端，找到并进入项目文件夹中Base.lproj文件夹。例如：cd /Users/sun/Desktop/InternationalDemo/Internation">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/Base.lproj.png">
+<meta property="og:image" content="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/NewStuff.string.png">
+<meta property="og:image" content="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/new%20plug-in.png">
+<meta property="og:updated_time" content="2019-07-08T06:11:04.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ella">
-<meta name="twitter:description" content="将来的你 一定会感激现在拼命的自己">
+<meta name="twitter:description" content="iOS中对于xib创建的viewcontroller国际化和其他的纯代码国际化没有区别。注意：国际化之后xib新添加控件，相应的国际化string文件不更新，那如何找到新空间的ObjectID呢？控件ObjectID的解决方法：  启动终端，找到并进入项目文件夹中Base.lproj文件夹。例如：cd /Users/sun/Desktop/InternationalDemo/Internation">
+<meta name="twitter:image" content="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/Base.lproj.png">
 
 
 
@@ -116,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://www.sunhong.vip/archives/2016/09/">
+  <link rel="canonical" href="http://www.sunhong.vip/2019/07/08/iOS-xib-国际化新增控件问题/">
 
 
 
 
 
-  <title>归档 | Ella</title>
+  <title> | Ella</title>
   
 
 
@@ -141,7 +146,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -283,72 +288,220 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 24 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2016">2016</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sunhong.vip/2019/07/08/iOS-xib-国际化新增控件问题/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ella">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ella">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2016/09/27/阿拉伯数字转中文/" itemprop="url">
-              
-                <span itemprop="name">阿拉伯数字转中文</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2016-09-27T00:00:00+08:00" content="2016-09-27">
-          09-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-08T14:11:04+08:00">
+                2019-07-08
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  207
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>iOS中对于xib创建的viewcontroller国际化和其他的纯代码国际化没有区别。<br>注意：国际化之后xib新添加控件，相应的国际化string文件不更新，那如何找到新空间的ObjectID呢？<br>控件ObjectID的解决方法：</p>
+<ol>
+<li>启动终端，找到并进入项目文件夹中<code>Base.lproj</code>文件夹。<br>例如：<br><code>cd /Users/sun/Desktop/InternationalDemo/InternationalDemo/Base.lproj</code></li>
+</ol>
+<p><img src="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/Base.lproj.png" alt="Base.lproj"></p>
+<ol start="2">
+<li>在终端继续输入命令：<br><code>btool Main.storyboard --generate-strings-file NewStuff.strings</code><br>(Main.storyboard 可以改成你的xib的名字xxx.xib)<br>可以给输出的文件命名为任何名称（本示例是用 “NewStuff.strings”）。</li>
+</ol>
+<p><img src="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/NewStuff.string.png" alt="NewStuff.string"></p>
+<ol start="3">
+<li>把新生成的输出文件<code>NewStuff.string</code>导入Xcode后打开，可找到控件对应的条目，然后把你需要的这些条目复制进项目的对应国际化文件，再进行翻译即可。</li>
+</ol>
+<p><img src="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/new%20plug-in.png" alt="new plug-in"></p>
+
+      
     </div>
+    
+    
+    
+
+    <div>
+     
+         <div>
+    
+        <div style="text-align:left;font-size:14px;">
+<p style="text-align:center;color: #ccc;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</p>
+<p><b>我的传送门：</b><a href="https://www.sunhong.vip/">博客</a>、<a href="https://www.jianshu.com/u/60dc3c4c6c3d">简书</a>、<a href="https://github.com/EllaSunQwQ">GitHub</a></p>
+</div>
+    
+</div>
+     
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Ella
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.sunhong.vip/2019/07/08/iOS-xib-国际化新增控件问题/" title>http://www.sunhong.vip/2019/07/08/iOS-xib-国际化新增控件问题/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/25/Node-js初学资料/" rel="next" title="Node.js初学资料总结">
+                <i class="fa fa-chevron-left"></i> Node.js初学资料总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -356,6 +509,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -618,6 +775,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
