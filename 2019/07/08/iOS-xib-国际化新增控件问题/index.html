@@ -85,13 +85,14 @@
 <meta property="og:site_name" content="Ella">
 <meta property="og:description" content="iOS中对于xib创建的viewcontroller国际化和其他的纯代码国际化没有区别。注意：国际化之后xib新添加控件，相应的国际化string文件不更新，那如何找到新空间的ObjectID呢？">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/Base.lproj.png?raw=true">
 <meta property="og:image" content="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/NewStuff.string.png?raw=true">
 <meta property="og:image" content="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/new%20plug-in.png?raw=true">
-<meta property="og:updated_time" content="2019-07-08T06:46:19.103Z">
+<meta property="og:updated_time" content="2019-07-08T06:49:16.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS xib 国际化新增控件问题">
 <meta name="twitter:description" content="iOS中对于xib创建的viewcontroller国际化和其他的纯代码国际化没有区别。注意：国际化之后xib新添加控件，相应的国际化string文件不更新，那如何找到新空间的ObjectID呢？">
-<meta name="twitter:image" content="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/NewStuff.string.png?raw=true">
+<meta name="twitter:image" content="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/Base.lproj.png?raw=true">
 
 
 
@@ -390,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  225
+                  207
                 </span>
               
 
@@ -433,7 +434,7 @@
 <ol>
 <li>启动终端，找到并进入项目文件夹中<code>Base.lproj</code>文件夹。<br>例如：<br><code>cd /Users/sun/Desktop/InternationalDemo/InternationalDemo/Base.lproj</code></li>
 </ol>
-<p>![Base.lproj]<a href="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/Base.lproj.png?raw=true" target="_blank" rel="noopener">https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/Base.lproj.png?raw=true</a>)</p>
+<p><img src="https://github.com/EllaSunQwQ/BlogPic/blob/master/xib国际化/Base.lproj.png?raw=true" alt="Base.lproj"></p>
 <ol start="2">
 <li>在终端继续输入命令：<br><code>btool Main.storyboard --generate-strings-file NewStuff.strings</code><br>(Main.storyboard 可以改成你的xib的名字xxx.xib)<br>可以给输出的文件命名为任何名称（本示例是用 “NewStuff.strings”）。</li>
 </ol>
