@@ -85,14 +85,10 @@
 <meta property="og:site_name" content="Ella">
 <meta property="og:description" content="前言首次接触iOS国际化，创建了Localizable.strings 文件之后，就开始在Localizable.strings(English)中添加项目内容。由于项目庞大，前期没有做国际化处理，导致现在很头疼。等到兴冲冲都添加完了，编译报出如下错误:  Users/sun/Desktop/ProjectName/Resource/en.lproj/Localizable.strings:-1:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.sunhong.vip/2019/07/19/iOS国际化bug总结/right.png">
-<meta property="og:image" content="http://www.sunhong.vip/2019/07/19/iOS国际化bug总结/wrong1.png">
-<meta property="og:image" content="http://www.sunhong.vip/2019/07/19/iOS国际化bug总结/Tab.png">
 <meta property="og:updated_time" content="2019-07-19T08:42:27.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS国际化bug总结">
 <meta name="twitter:description" content="前言首次接触iOS国际化，创建了Localizable.strings 文件之后，就开始在Localizable.strings(English)中添加项目内容。由于项目庞大，前期没有做国际化处理，导致现在很头疼。等到兴冲冲都添加完了，编译报出如下错误:  Users/sun/Desktop/ProjectName/Resource/en.lproj/Localizable.strings:-1:">
-<meta name="twitter:image" content="http://www.sunhong.vip/2019/07/19/iOS国际化bug总结/right.png">
 
 
 
@@ -433,12 +429,12 @@
 <p>Users/sun/Desktop/ProjectName/Resource/en.lproj/Localizable.strings:-1: read failed: Couldn’t parse property list because the input data was in an invalid format</p>
 </blockquote>
 <p>这里总结三个常见的错误<br><a id="more"></a></p>
-<h1 id="填坑"><a href="#填坑" class="headerlink" title="填坑"></a>填坑</h1><h2 id="可能的❌1"><a href="#可能的❌1" class="headerlink" title="可能的❌1"></a>可能的❌1</h2><p>首先检查一下代码格式，是否是这样的。<br>正确的文本格式如下：<br><img src="/2019/07/19/iOS国际化bug总结/right.png" title="This is an right image"><br>而不是这样：<br><img src="/2019/07/19/iOS国际化bug总结/wrong1.png" title="This is an wrong1 image"></p>
+<h1 id="填坑"><a href="#填坑" class="headerlink" title="填坑"></a>填坑</h1><h2 id="可能的❌1"><a href="#可能的❌1" class="headerlink" title="可能的❌1"></a>可能的❌1</h2><p>首先检查一下代码格式，是否是这样的。<br>正确的文本格式如下：<br><br>而不是这样：<br></p>
 <h2 id="可能的❌2"><a href="#可能的❌2" class="headerlink" title="可能的❌2"></a>可能的❌2</h2><p>Google 或者 Baidu 检索前辈经验，几乎全部提到的是如下解决方案：</p>
 <p><strong>某行末尾缺少英文分号 “;”</strong></p>
 <p>然后开始慢慢检查道路。<br>所谓懒人有懒人的方法，800多行的文字眼睛容易瞎。<br>那么一个快速的方法迅速萌生，在Localizable.strings(English)文件中用<code>Command+F</code>进行快捷检索<code>&quot;;</code>,这样符合条件的都会有阴影，之后一行行的瞄下来，很容易发现没有添加<code>;</code>的位置。嗯，暗自欣喜，有点飘~</p>
 <h2 id="可能的❌3"><a href="#可能的❌3" class="headerlink" title="可能的❌3"></a>可能的❌3</h2><p><em>空格缩进</em>的格式问题<br>例如借图：</p>
-<img src="/2019/07/19/iOS国际化bug总结/Tab.png" title="This is an Tab image">
+
 <p>我是直接从Word文档中复制直接粘贴到string文件的，不知道哪个步骤多出了空格导致了这种错误。</p>
 <p><strong><em>我看有些教程说Localizable.strings 文件每一行使用 Tab 缩进，我测试了一下，不使用 Tab 缩进也是可以的，只要保持每一行格式一致即可。</em></strong></p>
 
@@ -511,6 +507,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/23/长白山西坡夏季两日旅游攻略/" rel="prev" title="长白山西坡夏季两日旅游攻略">
+                长白山西坡夏季两日旅游攻略 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -589,7 +589,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -600,7 +600,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -611,7 +611,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
