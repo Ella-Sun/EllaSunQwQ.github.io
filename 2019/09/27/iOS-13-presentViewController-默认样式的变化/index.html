@@ -77,18 +77,20 @@
 
 
 
-<meta name="description" content="当后台传值类型为long 前端需要用NSString类型接收 当需要与特定值进行比较时，需要把该值用doubleValue转化后与数值比较，不能用NSString类型直接比较，因为后台可能传出的值为0.00型的或者0.0型的等，不能完全相等 123456Model *model = [Model alloc] init];model.userID  = dict[@&amp;quot;id&amp;quot;];">
+<meta name="description" content="iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案">
 <meta name="keywords" content="iOS开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS小方法小工具">
-<meta property="og:url" content="http://www.sunhong.vip/2017/01/27/iOS小方法小工具/index.html">
+<meta property="og:title" content="iOS 13 presentViewController 默认样式的变化">
+<meta property="og:url" content="http://www.sunhong.vip/2019/09/27/iOS-13-presentViewController-默认样式的变化/index.html">
 <meta property="og:site_name" content="Ella">
-<meta property="og:description" content="当后台传值类型为long 前端需要用NSString类型接收 当需要与特定值进行比较时，需要把该值用doubleValue转化后与数值比较，不能用NSString类型直接比较，因为后台可能传出的值为0.00型的或者0.0型的等，不能完全相等 123456Model *model = [Model alloc] init];model.userID  = dict[@&amp;quot;id&amp;quot;];">
+<meta property="og:description" content="iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-05T05:59:24.979Z">
+<meta property="og:image" content="http://www.sunhong.vip/images/present.png">
+<meta property="og:updated_time" content="2019-09-27T03:35:29.999Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS小方法小工具">
-<meta name="twitter:description" content="当后台传值类型为long 前端需要用NSString类型接收 当需要与特定值进行比较时，需要把该值用doubleValue转化后与数值比较，不能用NSString类型直接比较，因为后台可能传出的值为0.00型的或者0.0型的等，不能完全相等 123456Model *model = [Model alloc] init];model.userID  = dict[@&amp;quot;id&amp;quot;];">
+<meta name="twitter:title" content="iOS 13 presentViewController 默认样式的变化">
+<meta name="twitter:description" content="iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案">
+<meta name="twitter:image" content="http://www.sunhong.vip/images/present.png">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.sunhong.vip/2017/01/27/iOS小方法小工具/">
+  <link rel="canonical" href="http://www.sunhong.vip/2019/09/27/iOS-13-presentViewController-默认样式的变化/">
 
 
 
 
 
-  <title>iOS小方法小工具 | Ella</title>
+  <title>iOS 13 presentViewController 默认样式的变化 | Ella</title>
   
 
 
@@ -299,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sunhong.vip/2017/01/27/iOS小方法小工具/">
+    <link itemprop="mainEntityOfPage" href="http://www.sunhong.vip/2019/09/27/iOS-13-presentViewController-默认样式的变化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ella">
@@ -316,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS小方法小工具</h1>
+          <h1 class="post-title" itemprop="name headline">iOS 13 presentViewController 默认样式的变化</h1>
         
 
         <div class="post-meta">
@@ -328,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-27T00:00:00+08:00">
-                2017-01-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-27T11:22:48+08:00">
+                2019-09-27
               </time>
             
 
@@ -387,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  950
+                  433
                 </span>
               
 
@@ -403,7 +405,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  1
                 </span>
               
             </div>
@@ -424,47 +426,37 @@
       
 
       
-        <p><strong><em>当后台传值类型为long</em></strong></p>
-<p>前端需要用NSString类型接收</p>
-<p>当需要与特定值进行比较时，需要把该值用doubleValue转化后与数值比较，不能用NSString类型直接比较，因为后台可能传出的值为0.00型的或者0.0型的等，不能完全相等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Model *model = [Model alloc] init];</span><br><span class="line">model.userID  = dict[@&quot;id&quot;];</span><br><span class="line">if ([model.userID doubleValue] == 0)</span><br><span class="line">  &#123;</span><br><span class="line">    //做需要的操作</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p><strong><em>设置view的背景图片</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view.layer.constonts = (__bridge id)image.CGImage;</span><br></pre></td></tr></table></figure>
-<p><strong><em>界面通常为tableView或者collocationView布局。</em></strong><br>(借鉴<a href="https://github.com/dzenbot/DZNEmptyDataSet" target="_blank" rel="noopener">dzenbot/DZNEmptyDataSet</a>)</p>
-<p>当视图数据为空时，需显示默认视图。<br></p>
-<p>可以在tableView创建的cell个数的时候判断是否有内容，如果内容为空，显示默认视图，否则移除。</p>
-<p>待：此方法不是最优化方法，需想出更一劳永逸的解决方法。</p>
-<p><strong><em>向数组中插入多个元素</em></strong></p>
-<p>数组操作中不仅能插入一个元素，还能插入多个元素首位或者末尾</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSArray *addModel = @[kbOne,kbTwo];</span><br><span class="line">NSRange range=NSMakeRange(0, addModel.count);</span><br><span class="line">NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];</span><br><span class="line">[self.modelsArray insertObjects:addModel atIndexes:indexSet];</span><br></pre></td></tr></table></figure>
-<p><strong><em>裁剪圆形头像</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - 裁剪圆形头像</span><br><span class="line">- (UIImage *)imageWithClipImage:(UIImage *)image</span><br><span class="line">  					borderWidth:(CGFloat)borderW</span><br><span class="line">    			 	 boderColor:(UIColor *)boderColor</span><br><span class="line">&#123;</span><br><span class="line">    //加载image</span><br><span class="line">    //UIImage *image = [UIImage imageNamed:imageName];</span><br><span class="line">  </span><br><span class="line">    //开启位图上下文</span><br><span class="line">    CGSize roundSize = CGSizeMake(image.size.width + 2 * borderW, image.size.height + 2 *borderW);</span><br><span class="line">    UIGraphicsBeginImageContextWithOptions(roundSize, NO, 0.0);</span><br><span class="line">    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, roundSize.width,roundSize.height)];</span><br><span class="line">    [boderColor set];</span><br><span class="line">    [path fill];</span><br><span class="line"></span><br><span class="line">    //设置裁剪区域</span><br><span class="line">    CGRect clipRect = CGRectMake(borderW, borderW, image.size.width, image.size.height);</span><br><span class="line">    path = [UIBezierPath bezierPathWithOvalInRect:clipRect];</span><br><span class="line">    [path addClip];</span><br><span class="line"></span><br><span class="line">    //绘制图片</span><br><span class="line">    [image drawAtPoint:CGPointMake(borderW, borderW)];</span><br><span class="line"></span><br><span class="line">    //从上下文中取出新的图片</span><br><span class="line">    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();</span><br><span class="line"></span><br><span class="line">    //结束上下文</span><br><span class="line">    UIGraphicsEndImageContext();</span><br><span class="line">    //显示新图片</span><br><span class="line">    //self.iconImageView.image = newImage;</span><br><span class="line">    </span><br><span class="line">    return newImage;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong><em>UIImageView旋转</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//需要注意，这里之所以用(0.000001 - M_PI),是因为transform动画旋转会选择最近的路径进行旋转，默认是顺时针，如果直接选择- M_PI，那么箭头只会顺时针旋转，不会逆时针旋转</span><br><span class="line">// 使用了(0.000001 - M_PI)，那么它会选择近的路径旋转，就不会顺时针旋转了</span><br><span class="line">//大部分APP的下拉刷新基本都是箭头逆时针回旋，并不是一直顺时针旋转</span><br><span class="line">CGFloat angle = 0.000001 - M_PI  ;</span><br><span class="line">self.headerBtn.imageView.transform = CGAffineTransformMakeRotation(angle);</span><br></pre></td></tr></table></figure>
-<p><strong><em>UIEdgeInsets和UIOffsets</em></strong></p>
-<p><code>UIOffset</code>view距离父视图superView的边距</p>
-<p><code>UIEdgeInsets内边距</code>view内的content距离view的边距</p>
-<p>UIEdgeInsets是什么？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">typedef struct UIEdgeInsets &#123;</span><br><span class="line">    CGFloat top, left, bottom, right;  // specify amount to inset (positive) for each of the edges. values can be negative to &apos;outset&apos;</span><br><span class="line">&#125; UIEdgeInsets;</span><br></pre></td></tr></table></figure>
-<p>三个UIEdgeInsets属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@property(nonatomic) UIEdgeInsets contentEdgeInsets UI_APPEARANCE_SELECTOR; // default is UIEdgeInsetsZero</span><br><span class="line">@property(nonatomic) UIEdgeInsets titleEdgeInsets; // default is UIEdgeInsetsZero</span><br><span class="line">@property(nonatomic) UIEdgeInsets imageEdgeInsets; // default is UIEdgeInsetsZero</span><br></pre></td></tr></table></figure>
-<p><em>提示：UI_APPEARANCE_SELECTOR标记的属性都支持通过外观代理来定制。</em></p>
-<p><em>举例，设置UIButton的contentEdgeInsets属性，可以直接调用：</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[UIButton appearance] setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];</span><br><span class="line">或者</span><br><span class="line">  button.imageEdgeInsets ＝ UIEdgeInsetsMake(0,0,0,0);</span><br></pre></td></tr></table></figure>
-<p><strong><em>tableview的contentOffset和contentInset</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@property(nonatomic)CGPoint contentOffset;    // default CGPointZero</span><br><span class="line">@property(nonatomic)CGSize  contentSize;      // default CGSizeZero</span><br><span class="line">@property(nonatomic)UIEdgeInsets contentInset;// default UIEdgeInsetsZero. add additional scroll area around content</span><br></pre></td></tr></table></figure>
-<p><em><code>contentSize</code>表示的是内容区域的大小</em></p>
-<p><em><code>contentOffset</code> 是scrollview当前显示区域顶点相对于frame顶点的偏移量，可以理解为contentview的顶点相对于scrollerVIew的frame的偏移量。</em></p>
-<p><em><code>contentInset</code>表示contentView.frame.orgin与scrollerView.frame.orgin的关系。可以类比于css里的padding。</em></p>
-<p>参考<a href="http://www.jianshu.com/p/9091e5f34df5" target="_blank" rel="noopener">contentSize、contentOffset和contentInset的图解辨别</a></p>
-<p><strong><em>UIButton之图片、文字</em></strong></p>
-<p>参考<a href="http://www.jianshu.com/p/62850b201049" target="_blank" rel="noopener">UIButton 的 imageEdgeInsets 和 titleEdgeInsets</a></p>
-<p><strong><em>UIScrollerView偏移问题</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//  public var automaticallyAdjustsScrollViewInsets: Bool // Defaults to YES</span><br><span class="line">// 这个是scrollview自动调整.当scrollview是第一个view时,系统会自动调整,否则不会自动调整64</span><br><span class="line">  view.automaticallyAdjustsScrollViewInsets = false</span><br><span class="line">// 去掉自动调整后,我们可以手动将tableview的contentInset调整64,就能完成我们的需求</span><br><span class="line">  tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)</span><br></pre></td></tr></table></figure>
-<p><strong>当有tabBarController时,推出下一个界面时,隐藏tabbar*</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hidesBottomBarWhenPushed = true</span><br></pre></td></tr></table></figure>
-<p><strong><em>HTTP类封装：判断用户权限、是否登陆操作</em></strong></p>
-<p><em>需要封装一个HTTP相关的类，在收到后台的初始数据时进行处理，然后再封装后传出去</em></p>
+        <ul>
+<li>iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。</li>
+<li>解决方案</li>
+</ul>
+<a id="more"></a>
+<p>转发<a href="https://www.jianshu.com/p/4d27256b3a94" target="_blank" rel="noopener">iOS 13[beta] presentViewController 默认样式的变化</a> + 问题解决方案</p>
+<blockquote>
+<p>本文对应系统版本为 iOS 13</p>
+</blockquote>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>在iOS 13之前，我们模态展示的视图默认是全屏的。但是更新到iOS13之后，默认的样式变成iPhone上Safari展示的分页样式。</p>
+<p>在使用 presentViewController 来跳转视图时系统提供了两个参数来简化跳转的设置，modalTransitionStyle 和 modalPresentationStyle。前者为转场过渡的类型，后者为展示的样式，系统为两者都提供了多种可选样式。</p>
+<blockquote>
+<p>在iOS13前，展示的方式 modalPresentationStyle 的值默认为0，即 .fullScreen。<br>而此时，在 iOS13 中变为了-2。</p>
+</blockquote>
+<p>在 iOS13 中 modalPresentationStyle 的类型新增了以下类型:</p>
+<blockquote>
+<p>UIModalPresentationAutomatic = -2</p>
+</blockquote>
+<p>modalPresentationStyle的所有展示类型：</p>
+<p><img src="/images/present.png" alt="presentStyle"></p>
+<p>官方文档中能看到该参数的如下描述:</p>
+<blockquote>
+<p>Use this value when you want to use the system’s recommended presentation style. For most view controllers, UIKit maps this style to the UIModalPresentationPageSheet style, but some system view controllers may map to a different style.</p>
+<p>如果你想使用系统推荐的演示样式就使用此值，对于绝大部分视图控制器，UIKit将此值映射到UIModalPresentationPageSheet，但也有一些系统视图控制器会映射到不同样式</p>
+</blockquote>
+<p>除了 “UISearchController” 和 “UIAlertController” 因为自身业务的特殊性不同外，其余的视图控制器均为 UIModalPresentationPageSheet 的展示样式。</p>
+<p>另外，展现隐私政策的视图SFSafariViewController展示样式默认全屏，不用更改。</p>
+<p>##解决方案</p>
+<p>在需要全屏展示的VC中添加代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)init</span><br><span class="line">&#123;</span><br><span class="line">    self = [super init];</span><br><span class="line">    if (self) &#123;</span><br><span class="line">        self.modalPresentationStyle = UIModalPresentationFullScreen;</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有问题欢迎评论。<br><a href="https://www.jianshu.com/p/423fcee37cd8" target="_blank" rel="noopener">简书</a></p>
 
       
     </div>
@@ -498,7 +490,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.sunhong.vip/2017/01/27/iOS小方法小工具/" title="iOS小方法小工具">http://www.sunhong.vip/2017/01/27/iOS小方法小工具/</a>
+    <a href="http://www.sunhong.vip/2019/09/27/iOS-13-presentViewController-默认样式的变化/" title="iOS 13 presentViewController 默认样式的变化">http://www.sunhong.vip/2019/09/27/iOS-13-presentViewController-默认样式的变化/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -526,8 +518,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/18/Xcode：添加自定义代码片段/" rel="next" title="Xcode：添加自定义代码片段">
-                <i class="fa fa-chevron-left"></i> Xcode：添加自定义代码片段
+              <a href="/2019/07/23/长白山西坡夏季两日旅游攻略/" rel="next" title="长白山西坡夏季两日旅游攻略">
+                <i class="fa fa-chevron-left"></i> 长白山西坡夏季两日旅游攻略
               </a>
             
           </div>
@@ -535,10 +527,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/10/被苹果拒绝了/" rel="prev" title="被苹果拒绝了">
-                被苹果拒绝了 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -590,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -683,6 +680,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">1.</span> <span class="nav-text">问题分析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
