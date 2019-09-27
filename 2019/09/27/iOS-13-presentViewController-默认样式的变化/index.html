@@ -86,7 +86,7 @@
 <meta property="og:description" content="iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.sunhong.vip/images/present.png">
-<meta property="og:updated_time" content="2019-09-27T03:35:29.999Z">
+<meta property="og:updated_time" content="2019-09-27T03:38:45.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 13 presentViewController 默认样式的变化">
 <meta name="twitter:description" content="iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案">
@@ -453,8 +453,7 @@
 </blockquote>
 <p>除了 “UISearchController” 和 “UIAlertController” 因为自身业务的特殊性不同外，其余的视图控制器均为 UIModalPresentationPageSheet 的展示样式。</p>
 <p>另外，展现隐私政策的视图SFSafariViewController展示样式默认全屏，不用更改。</p>
-<p>##解决方案</p>
-<p>在需要全屏展示的VC中添加代码：</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>在需要全屏展示的VC中添加代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)init</span><br><span class="line">&#123;</span><br><span class="line">    self = [super init];</span><br><span class="line">    if (self) &#123;</span><br><span class="line">        self.modalPresentationStyle = UIModalPresentationFullScreen;</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>有问题欢迎评论。<br><a href="https://www.jianshu.com/p/423fcee37cd8" target="_blank" rel="noopener">简书</a></p>
 
@@ -690,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">1.</span> <span class="nav-text">问题分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
             
 
           </div>
