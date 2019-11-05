@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Xcode11探索之旅]]></title>
+    <url>%2F2019%2F11%2F05%2FXcode11%E6%8E%A2%E7%B4%A2%E4%B9%8B%E6%97%85%2F</url>
+    <content type="text"><![CDATA[在更新到Xcode11、iOS13之后，对原有项目进行适配各种操作。最近需求一个全新的APP，才发现Xcode11变了很多，再也不是我印象中的那个TA了。 Xcode11添加引导页 Xcode11创建启动图 Xcode11添加引导页首先感谢网上各位大神。 新建LaunchImage Xcode11创建启动图]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo 博客写作防坑总结.md]]></title>
     <url>%2F2019%2F09%2F27%2FHexo-%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C%E9%98%B2%E5%9D%91%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[a multiline key may not be an implicit key at line 5,column 1 坑1：YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 5,column 1:原因创建的md文件头部声明中没有加空格。]]></content>
@@ -14,7 +25,7 @@
   <entry>
     <title><![CDATA[iOS 13 presentViewController 默认样式的变化]]></title>
     <url>%2F2019%2F09%2F27%2FiOS-13-presentViewController-%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F%E7%9A%84%E5%8F%98%E5%8C%96%2F</url>
-    <content type="text"><![CDATA[iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案 iOS 13 presentViewController 默认样式的变化转发iOS 13[beta] presentViewController 默认样式的变化 + 问题解决方案 本文对应系统版本为 iOS 13 问题分析在iOS 13之前，我们模态展示的视图默认是全屏的。但是更新到iOS13之后，默认的样式变成iPhone上Safari展示的分页样式。 在使用 presentViewController 来跳转视图时系统提供了两个参数来简化跳转的设置，modalTransitionStyle 和 modalPresentationStyle。前者为转场过渡的类型，后者为展示的样式，系统为两者都提供了多种可选样式。 在iOS13前，展示的方式 modalPresentationStyle 的值默认为0，即 .fullScreen。而此时，在 iOS13 中变为了-2。 在 iOS13 中 modalPresentationStyle 的类型新增了以下类型: UIModalPresentationAutomatic = -2 modalPresentationStyle的所有展示类型： 官方文档中能看到该参数的如下描述: Use this value when you want to use the system’s recommended presentation style. For most view controllers, UIKit maps this style to the UIModalPresentationPageSheet style, but some system view controllers may map to a different style. 如果你想使用系统推荐的演示样式就使用此值，对于绝大部分视图控制器，UIKit将此值映射到UIModalPresentationPageSheet，但也有一些系统视图控制器会映射到不同样式 除了 “UISearchController” 和 “UIAlertController” 因为自身业务的特殊性不同外，其余的视图控制器均为 UIModalPresentationPageSheet 的展示样式。 另外，展现隐私政策的视图SFSafariViewController展示样式默认全屏，不用更改。 解决方案在需要全屏展示的VC中添加代码： 12345678- (instancetype)init&#123; self = [super init]; if (self) &#123; self.modalPresentationStyle = UIModalPresentationFullScreen; &#125; return self;&#125; 有问题欢迎评论。简书 其他对于iOS13适配做的工作APP 内全局关闭暗黑模式plist 里面添加如下键值:12&lt;key&gt;UIUserInterfaceStyle&lt;/key&gt;&lt;string&gt;Light&lt;/string&gt;]]></content>
+    <content type="text"><![CDATA[iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案 iOS 13 presentViewController 默认样式的变化转发iOS 13[beta] presentViewController 默认样式的变化 + 问题解决方案 本文对应系统版本为 iOS 13 问题分析在iOS 13之前，我们模态展示的视图默认是全屏的。但是更新到iOS13之后，默认的样式变成iPhone上Safari展示的分页样式。 在使用 presentViewController 来跳转视图时系统提供了两个参数来简化跳转的设置，modalTransitionStyle 和 modalPresentationStyle。前者为转场过渡的类型，后者为展示的样式，系统为两者都提供了多种可选样式。 在iOS13前，展示的方式 modalPresentationStyle 的值默认为0，即 .fullScreen。而此时，在 iOS13 中变为了-2。 在 iOS13 中 modalPresentationStyle 的类型新增了以下类型: UIModalPresentationAutomatic = -2 modalPresentationStyle的所有展示类型： 官方文档中能看到该参数的如下描述: Use this value when you want to use the system’s recommended presentation style. For most view controllers, UIKit maps this style to the UIModalPresentationPageSheet style, but some system view controllers may map to a different style. 如果你想使用系统推荐的演示样式就使用此值，对于绝大部分视图控制器，UIKit将此值映射到UIModalPresentationPageSheet，但也有一些系统视图控制器会映射到不同样式 除了 “UISearchController” 和 “UIAlertController” 因为自身业务的特殊性不同外，其余的视图控制器均为 UIModalPresentationPageSheet 的展示样式。 另外，展现隐私政策的视图SFSafariViewController展示样式默认全屏，不用更改。 解决方案在需要全屏展示的VC中添加代码： 12345678- (instancetype)init&#123; self = [super init]; if (self) &#123; self.modalPresentationStyle = UIModalPresentationFullScreen; &#125; return self;&#125; 有问题欢迎评论。简书 其他对于iOS13适配做的工作APP 内全局关闭暗黑模式解决方案plist 里面添加如下键值:12&lt;key&gt;UIUserInterfaceStyle&lt;/key&gt;&lt;string&gt;Light&lt;/string&gt; UITextField通过KVC方式修改空白提示语颜色 崩溃1[UITextField setValue:[UIColor redColor] forKeyPath:@&quot;_placeholderLabel.textColor”]; 解决方案使用attributedPlaceholder 12NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:placeStr attributes:@&#123;NSForegroundColorAttributeName:[UIColor grayColor]&#125;];inputTextField.attributedPlaceholder = attString; 可参考文章 iOS13适配]]></content>
       <categories>
         <category>iOS开发</category>
       </categories>
@@ -36,7 +47,7 @@
   <entry>
     <title><![CDATA[iOS国际化bug总结]]></title>
     <url>%2F2019%2F07%2F19%2FiOS%E5%9B%BD%E9%99%85%E5%8C%96bug%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[前言首次接触iOS国际化，创建了Localizable.strings 文件之后，就开始在Localizable.strings(English)中添加项目内容。由于项目庞大，前期没有做国际化处理，导致现在很头疼。等到兴冲冲都添加完了，编译报出如下错误: Users/sun/Desktop/ProjectName/Resource/en.lproj/Localizable.strings:-1: read failed: Couldn’t parse property list because the input data was in an invalid format 这里总结三个常见的错误 填坑可能的❌1首先检查一下代码格式，是否是这样的。正确的文本格式如下：而不是这样： 可能的❌2Google 或者 Baidu 检索前辈经验，几乎全部提到的是如下解决方案： 某行末尾缺少英文分号 “;” 然后开始慢慢检查道路。所谓懒人有懒人的方法，800多行的文字眼睛容易瞎。那么一个快速的方法迅速萌生，在Localizable.strings(English)文件中用Command+F进行快捷检索&quot;;,这样符合条件的都会有阴影，之后一行行的瞄下来，很容易发现没有添加;的位置。嗯，暗自欣喜，有点飘~ 可能的❌3空格缩进的格式问题例如借图： 我是直接从Word文档中复制直接粘贴到string文件的，不知道哪个步骤多出了空格导致了这种错误。 我看有些教程说Localizable.strings 文件每一行使用 Tab 缩进，我测试了一下，不使用 Tab 缩进也是可以的，只要保持每一行格式一致即可。]]></content>
+    <content type="text"><![CDATA[前言首次接触iOS国际化，创建了Localizable.strings 文件之后，就开始在Localizable.strings(English)中添加项目内容。由于项目庞大，前期没有做国际化处理，导致现在很头疼。等到兴冲冲都添加完了，编译报出如下错误: Users/sun/Desktop/ProjectName/Resource/en.lproj/Localizable.strings:-1: read failed: Couldn’t parse property list because the input data was in an invalid format 这里总结三个常见的错误 填坑可能的❌1首先检查一下代码格式，是否是这样的。正确的文本格式如下： 而不是这样： 可能的❌2Google 或者 Baidu 检索前辈经验，几乎全部提到的是如下解决方案： 某行末尾缺少英文分号 “;” 然后开始慢慢检查道路。所谓懒人有懒人的方法，800多行的文字眼睛容易瞎。那么一个快速的方法迅速萌生，在Localizable.strings(English)文件中用Command+F进行快捷检索&quot;;,这样符合条件的都会有阴影，之后一行行的瞄下来，很容易发现没有添加;的位置。嗯，暗自欣喜，有点飘~ 可能的❌3空格缩进的格式问题例如借图： 我是直接从Word文档中复制直接粘贴到string文件的，不知道哪个步骤多出了空格导致了这种错误。 我看有些教程说Localizable.strings 文件每一行使用 Tab 缩进，我测试了一下，不使用 Tab 缩进也是可以的，只要保持每一行格式一致即可。]]></content>
       <categories>
         <category>iOS开发</category>
       </categories>
@@ -177,28 +188,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS-适配-iPhone-X、XR、XS、XS-Max]]></title>
-    <url>%2F2018%2F09%2F19%2FiOS-%E9%80%82%E9%85%8D-iPhone-X%E3%80%81XR%E3%80%81XS%E3%80%81XS-Max%2F</url>
-    <content type="text"><![CDATA[iOS 判断机型是否为 iPhone X、XR、XS、XS Max 的方法1234567891011if ([deviceString isEqualToString:@&quot;iPhone10,1&quot;]) return @&quot;国行(A1863)、日行(A1906)iPhone 8&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,4&quot;]) return @&quot;美版(Global/A1905)iPhone 8&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,2&quot;]) return @&quot;国行(A1864)、日行(A1898)iPhone 8 Plus&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,5&quot;]) return @&quot;美版(Global/A1897)iPhone 8 Plus&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,3&quot;]) return @&quot;国行(A1865)、日行(A1902)iPhone X&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,6&quot;]) return @&quot;美版(Global/A1901)iPhone X&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,2&quot;]) return @&quot;iPhone XS&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,4&quot;]) return @&quot;iPhone XS Max&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,6&quot;]) return @&quot;iPhone XS Max&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,8&quot;]) return @&quot;iPhone XR&quot;; 参考原文:史上最全的iOS各种设备信息获取总结 信息采集框架iPhone XR/iPhone XS Max启动图iPhone XR：828px x 1792pxiPhone XS Max: 1242px x 2688px 代码中判断是否是iPhone X时需要注意如果你以前是使用设备尺寸来判断iPhone X那就需要修改了，判断iPhone X主要是因为刘海的原因可能要做些特殊处理。鉴于iPhone X/XS/XR/XS Max底部都会有安全距离，所以可以利用safeAreaInsets.bottom &gt; 0.0来判断是否是iPhone X/XS/XR/XS Max。 safeAreaInsets支持iOS11及以后。 1#define IPHONE_X (@available(iOS 11.0, *)?[[[UIApplication sharedApplication] delegate] window].safeAreaInsets.bottom &gt; 0.0:NO ) 参考原文:适配iPhone XR/iPhone XS Max]]></content>
-      <categories>
-        <category>iOS开发</category>
-      </categories>
-      <tags>
-        <tag>iOS开发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[SQLCipher]]></title>
-    <url>%2F2018%2F09%2F19%2FSQLCipher%2F</url>
-    <content type="text"><![CDATA[转自使用SQLCipher加密SQLite数据库其他参考文章： 集成SQLCipher SQLite 加密 – SQLCipher 在iOS应用程序开发中经常需要使用SQLite来存储数据，很多时候需要加密保存一部分的数据。常见的做法是将要存储的内容先加密然后存到数据库中，使用的时候将数据进行解密，这样就会有大量的性能消耗在数据的加解密上（性能主要取决于加解密的算法和CPU的能力）。 SQLCipher is an open source extension to SQLite that provides transparent 256-bit AES encryption of database files. SQLite本身是支持加密功能的（免费版本不提供加密功能，商业版本是支持加密模块）。SQLCipher是一个开源的SQLite加密扩展，支持对db文件进行256位的AES加密。 集成SQLCipher集成SQLCipher有有两种方法一种是按照官方的方式一步步的执行，这里就不过多的介绍。配置过程很麻烦，推荐使用下面的方式集成。 1、获取SQLite加密模块(SQLCipher) 在终端(Terminal)中使用pod search FMDB，在查询的结果中可以看到有个FMDB/SQLCipher的Sub spec。 如果使用FMDB和CocoaPods的话直接在你的Podfile中添加pod &#39;FMDB/SQLCipher&#39; 如果没有使用CocoaPods的话建议还是安装一个吧，或者是新建一个测试项目安装FMDB和SQLCipher。安装CocoaPods可以参考《使用CocoaPods管理iOS项目中的依赖库》 2、导入SQLCipher 执行pod install之后会自动获取SQLCipher，其实SQLCipher只有两个文件sqlite3.h和sqlite3.m。 拷贝sqlite3.h/sqlite3.m文件到项目中，如果使用CocoaPods方式获取SQLCipher的话，这一步骤就不需要了。 3、配置Xcode设置项 通过查询资料SQLite是否开启加密模块是通过宏(SQLITE_HAS_CODEC)来配置的。那么就需要在Xcode中配置开启SQLite加密组件的宏（如使用CocoaPods方式则不需要配置）。 (1)target –&gt; Build Setting –&gt; Other C Flags添加-DSQLITE_HAS_CODEC配置 (2)target –&gt; Build Setting –&gt; Other Linker Flags添加-framework Security配置 4、如何使用 (1)引入sqlite3加密模块，然后在打开数据库之后加入如下代码 |12 |12const char *key = [@&quot;devzeng&quot; UTF8String];sqlite3_key(_db, key, (int)strlen(key)); | 如下图： 说明： 1）如果没有添加-DSQLITE_HAS_CODEC配置上面的代码会报错 2）sqlite3_key函数需要指定加密使用的key，推荐使用UUID(可以进行salt处理)并存储到KeyChain中。 3）如使用FMDB，可以在FMDB的open方法之后添加上面的两行代码。 (2)使用了加密模块在提交到App Store时需要指明，具体的操作方法可以参考StackOverflow上面的做法。 Does my application “contain encryption”? 参考资料1、《Adding SQLCipher to Xcode Projects》 2、《ios开发FMDB导入SQLCipher加密数据库》 3、《SQLite数据库加密研究》]]></content>
-      <categories>
-        <category>iOS开发</category>
-      </categories>
-      <tags>
-        <tag>iOS开发</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Xcode-10和iOS-12排雷]]></title>
     <url>%2F2018%2F09%2F19%2FXcode-10%E5%92%8CiOS-12%E6%8E%92%E9%9B%B7%2F</url>
     <content type="text"><![CDATA[今天刚升级到Xcode10，迫不及待运行项目，结果1S我就回到冰点，爆红点。网查发现解决方案。网查的时候发现还有个问题似乎出现概率也挺高的，我就汇总一下，节省之后可能浪费的时间。 雷区一、二是我自己出现的问题，其他还没有实测，如果没有解决你的问题，请自行找度娘。 雷区一：Multiple commands produce123error: Multiple commands produce &apos;/Users/xiaoyuan/Library/Developer/Xcode/DerivedData/Boobuz-gnxeuntgkenwgdgycqnvabqubafh/Build/Products/Debug-iphoneos/Boobuz.app&apos;:1) Target &apos;Boobuz&apos; has create directory command with output &apos;/Users/xiaoyuan/Library/Developer/Xcode/DerivedData/Boobuz-gnxeuntgkenwgdgycqnvabqubafh/Build/Products/Debug-iphoneos/Boobuz.app&apos;2) That command depends on command in Target &apos;Boobuz&apos;: script phase “[CP] Copy Pods Resources” 分析error内容，错误发生在Copy Pods Resources，而且与output有关，应该是使用了cocoapods导致的，尝试删除该项目target-Copy Pods Resources-Output Files，成功解决问题。参考解决方案：Xcode 10 beta3 Error: Multiple commands produce 雷区二 12ld: library not found for -lstdc++.6.0.9clang: error: linker command failed with exit code 1 (use -v to see invocation) 项目用到了c++，依赖了libstdc++.6.0.9.tbd,导致整个工程编译不通过，原因是苹果在XCode10和iOS12中移除了libstdc++这个库，由libc++这个库取而代之,苹果的解释是libstdc++已经标记为废弃有5年了，建议大家使用经过了llvm优化过并且全面支持C++11的libc++库。“libc++” C++ Standard Librarylibc++和libstdc++接下来更新这个库就好了，TARGETS—&gt;Build Phases—&gt;Link Binary With Libraries()直接删除，然后添加libc++解决。更多详情查看Xcode10和iOS12适配查找答案的时候发现报错ld: library not found for -lxxxx-ios-x.x.x之类的，可能在合并或者其他操作的时候，误删了这个库，试试在这个路径添加喽。 雷区三123:-1: Multiple commands produce &apos;/Users/.../Library/Developer/Xcode/DerivedData/.../Build/Products/Dev-iphonesimulator/TLYShyNavBar/TLYShyNavBar.framework/Info.plist&apos;:1) Target &apos;TLYShyNavBar&apos; has copy command from &apos;/Users/.../Desktop/Workspace/iOS/.../Pods/TLYShyNavBar/TLYShyNavBar/Info.plist&apos; to &apos;/Users/.../Library/Developer/Xcode/DerivedData/.../Build/Products/Dev-iphonesimulator/TLYShyNavBar/TLYShyNavBar.framework/Info.plist&apos;2) Target &apos;TLYShyNavBar&apos; has process command with input &apos;/Users/.../Desktop/Workspace/iOS/.../Pods/Target Support Files/TLYShyNavBar/Info.plist&apos; In Xcode, go to File-&gt;Project/Workspace settings. Change the build system to Legacy Build system.参考解决方案：Xcode10 Multiple commands produced error 雷区四这个项目中并未用到，直接删除了文件。]]></content>
@@ -210,9 +199,31 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[iOS-适配-iPhone-X、XR、XS、XS-Max]]></title>
+    <url>%2F2018%2F09%2F19%2FiOS-%E9%80%82%E9%85%8D-iPhone-X%E3%80%81XR%E3%80%81XS%E3%80%81XS-Max%2F</url>
+    <content type="text"><![CDATA[iOS 判断机型是否为 iPhone X、XR、XS、XS Max 的方法1234567891011if ([deviceString isEqualToString:@&quot;iPhone10,1&quot;]) return @&quot;国行(A1863)、日行(A1906)iPhone 8&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,4&quot;]) return @&quot;美版(Global/A1905)iPhone 8&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,2&quot;]) return @&quot;国行(A1864)、日行(A1898)iPhone 8 Plus&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,5&quot;]) return @&quot;美版(Global/A1897)iPhone 8 Plus&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,3&quot;]) return @&quot;国行(A1865)、日行(A1902)iPhone X&quot;;if ([deviceString isEqualToString:@&quot;iPhone10,6&quot;]) return @&quot;美版(Global/A1901)iPhone X&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,2&quot;]) return @&quot;iPhone XS&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,4&quot;]) return @&quot;iPhone XS Max&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,6&quot;]) return @&quot;iPhone XS Max&quot;;if ([deviceString isEqualToString:@&quot;iPhone11,8&quot;]) return @&quot;iPhone XR&quot;; 参考原文:史上最全的iOS各种设备信息获取总结 信息采集框架iPhone XR/iPhone XS Max启动图iPhone XR：828px x 1792pxiPhone XS Max: 1242px x 2688px 代码中判断是否是iPhone X时需要注意如果你以前是使用设备尺寸来判断iPhone X那就需要修改了，判断iPhone X主要是因为刘海的原因可能要做些特殊处理。鉴于iPhone X/XS/XR/XS Max底部都会有安全距离，所以可以利用safeAreaInsets.bottom &gt; 0.0来判断是否是iPhone X/XS/XR/XS Max。 safeAreaInsets支持iOS11及以后。 1#define IPHONE_X (@available(iOS 11.0, *)?[[[UIApplication sharedApplication] delegate] window].safeAreaInsets.bottom &gt; 0.0:NO ) 参考原文:适配iPhone XR/iPhone XS Max]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[swift4进阶]]></title>
     <url>%2F2018%2F09%2F19%2Fswift4%E8%BF%9B%E9%98%B6%2F</url>
     <content type="text"><![CDATA[Swift 4.0 教程 三十天三十个 Swift 项目 三十天三十个 Swift 项目-简书]]></content>
+      <categories>
+        <category>iOS开发</category>
+      </categories>
+      <tags>
+        <tag>iOS开发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SQLCipher]]></title>
+    <url>%2F2018%2F09%2F19%2FSQLCipher%2F</url>
+    <content type="text"><![CDATA[转自使用SQLCipher加密SQLite数据库其他参考文章： 集成SQLCipher SQLite 加密 – SQLCipher 在iOS应用程序开发中经常需要使用SQLite来存储数据，很多时候需要加密保存一部分的数据。常见的做法是将要存储的内容先加密然后存到数据库中，使用的时候将数据进行解密，这样就会有大量的性能消耗在数据的加解密上（性能主要取决于加解密的算法和CPU的能力）。 SQLCipher is an open source extension to SQLite that provides transparent 256-bit AES encryption of database files. SQLite本身是支持加密功能的（免费版本不提供加密功能，商业版本是支持加密模块）。SQLCipher是一个开源的SQLite加密扩展，支持对db文件进行256位的AES加密。 集成SQLCipher集成SQLCipher有有两种方法一种是按照官方的方式一步步的执行，这里就不过多的介绍。配置过程很麻烦，推荐使用下面的方式集成。 1、获取SQLite加密模块(SQLCipher) 在终端(Terminal)中使用pod search FMDB，在查询的结果中可以看到有个FMDB/SQLCipher的Sub spec。 如果使用FMDB和CocoaPods的话直接在你的Podfile中添加pod &#39;FMDB/SQLCipher&#39; 如果没有使用CocoaPods的话建议还是安装一个吧，或者是新建一个测试项目安装FMDB和SQLCipher。安装CocoaPods可以参考《使用CocoaPods管理iOS项目中的依赖库》 2、导入SQLCipher 执行pod install之后会自动获取SQLCipher，其实SQLCipher只有两个文件sqlite3.h和sqlite3.m。 拷贝sqlite3.h/sqlite3.m文件到项目中，如果使用CocoaPods方式获取SQLCipher的话，这一步骤就不需要了。 3、配置Xcode设置项 通过查询资料SQLite是否开启加密模块是通过宏(SQLITE_HAS_CODEC)来配置的。那么就需要在Xcode中配置开启SQLite加密组件的宏（如使用CocoaPods方式则不需要配置）。 (1)target –&gt; Build Setting –&gt; Other C Flags添加-DSQLITE_HAS_CODEC配置 (2)target –&gt; Build Setting –&gt; Other Linker Flags添加-framework Security配置 4、如何使用 (1)引入sqlite3加密模块，然后在打开数据库之后加入如下代码 |12 |12const char *key = [@&quot;devzeng&quot; UTF8String];sqlite3_key(_db, key, (int)strlen(key)); | 如下图： 说明： 1）如果没有添加-DSQLITE_HAS_CODEC配置上面的代码会报错 2）sqlite3_key函数需要指定加密使用的key，推荐使用UUID(可以进行salt处理)并存储到KeyChain中。 3）如使用FMDB，可以在FMDB的open方法之后添加上面的两行代码。 (2)使用了加密模块在提交到App Store时需要指明，具体的操作方法可以参考StackOverflow上面的做法。 Does my application “contain encryption”? 参考资料1、《Adding SQLCipher to Xcode Projects》 2、《ios开发FMDB导入SQLCipher加密数据库》 3、《SQLite数据库加密研究》]]></content>
       <categories>
         <category>iOS开发</category>
       </categories>
