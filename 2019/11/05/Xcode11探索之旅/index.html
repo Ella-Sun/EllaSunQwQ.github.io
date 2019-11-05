@@ -77,20 +77,23 @@
 
 
 
-<meta name="description" content="在更新到Xcode11、iOS13之后，对原有项目进行适配各种操作。最近需求一个全新的APP，才发现Xcode11变了很多，再也不是我印象中的那个TA了。  Xcode11添加引导页 Xcode11创建启动图">
+<meta name="description" content="在更新到Xcode11、iOS13之后，对原有项目进行适配各种操作。最近需求一个全新的APP，才发现Xcode11变了很多，再也不是我印象中的那个TA了。  Xcode11添加启动页面 Xcode11创建启动图">
 <meta name="keywords" content="iOS开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Xcode11探索之旅">
 <meta property="og:url" content="http://www.sunhong.vip/2019/11/05/Xcode11探索之旅/index.html">
 <meta property="og:site_name" content="Ella">
-<meta property="og:description" content="在更新到Xcode11、iOS13之后，对原有项目进行适配各种操作。最近需求一个全新的APP，才发现Xcode11变了很多，再也不是我印象中的那个TA了。  Xcode11添加引导页 Xcode11创建启动图">
+<meta property="og:description" content="在更新到Xcode11、iOS13之后，对原有项目进行适配各种操作。最近需求一个全新的APP，才发现Xcode11变了很多，再也不是我印象中的那个TA了。  Xcode11添加启动页面 Xcode11创建启动图">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/alert.png">
-<meta property="og:updated_time" content="2019-11-05T03:57:00.378Z">
+<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/Launch.png">
+<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/AppImage.png">
+<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/asset.png">
+<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/Alert.png">
+<meta property="og:updated_time" content="2019-11-05T06:27:06.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xcode11探索之旅">
-<meta name="twitter:description" content="在更新到Xcode11、iOS13之后，对原有项目进行适配各种操作。最近需求一个全新的APP，才发现Xcode11变了很多，再也不是我印象中的那个TA了。  Xcode11添加引导页 Xcode11创建启动图">
-<meta name="twitter:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/alert.png">
+<meta name="twitter:description" content="在更新到Xcode11、iOS13之后，对原有项目进行适配各种操作。最近需求一个全新的APP，才发现Xcode11变了很多，再也不是我印象中的那个TA了。  Xcode11添加启动页面 Xcode11创建启动图">
+<meta name="twitter:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/Launch.png">
 
 
 
@@ -389,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  89
+                  224
                 </span>
               
 
@@ -428,12 +431,22 @@
       
         <p>在更新到Xcode11、iOS13之后，对原有项目进行适配各种操作。<br>最近需求一个全新的APP，才发现Xcode11变了很多，再也不是我印象中的那个TA了。</p>
 <ul>
-<li>Xcode11添加引导页</li>
+<li>Xcode11添加启动页面</li>
 <li>Xcode11创建启动图</li>
 </ul>
 <a id="more"></a>
-<h1 id="Xcode11添加引导页"><a href="#Xcode11添加引导页" class="headerlink" title="Xcode11添加引导页"></a>Xcode11添加引导页</h1><p>首先感谢网上各位大神。</p>
-<h2 id="新建LaunchImage"><a href="#新建LaunchImage" class="headerlink" title="新建LaunchImage"></a>新建LaunchImage</h2><p><img src="/images/Xcode11探索之旅/alert.png" alt></p>
+<h1 id="Xcode11添加启动页"><a href="#Xcode11添加启动页" class="headerlink" title="Xcode11添加启动页"></a>Xcode11添加启动页</h1><p>首先感谢网上各位大神。</p>
+<h2 id="新建LaunchImage"><a href="#新建LaunchImage" class="headerlink" title="新建LaunchImage"></a>新建LaunchImage</h2><p><img src="/images/Xcode11探索之旅/Launch.png" alt></p>
+<p>拖入UI给的符合尺寸的图片</p>
+<h2 id="选择新建的启动页"><a href="#选择新建的启动页" class="headerlink" title="选择新建的启动页"></a>选择新建的启动页</h2><p>Xcode11中，在<code>target</code>里边的<code>App Icons and Launch Images</code>，没有了<code>Launch Images Source</code>选项。</p>
+<p><img src="/images/Xcode11探索之旅/AppImage.png" alt></p>
+<p><strong>解决方法</strong></p>
+<p>将<code>Launch Screen File</code>置为空。</p>
+<p>在工程<code>targets</code>–&gt;<code>Build Settings</code> 搜索 <code>Asset Catalog Launch Image Set Name</code>，然后设置成新建的启动页名称即可。</p>
+<p><img src="/images/Xcode11探索之旅/asset.png" alt></p>
+<h2 id="警告⚠️"><a href="#警告⚠️" class="headerlink" title="警告⚠️"></a>警告⚠️</h2><p>需要注意到一个警告：</p>
+<p><img src="/images/Xcode11探索之旅/Alert.png" alt></p>
+<p><strong>从2020年4月开始，使⽤ iOS13 SDK 的 App 将必须提供 LaunchScreen，而LaunchImage将退出历史的舞台，说明以后启动页要通过LaunchScreen来设置了。</strong>s</p>
 <h1 id="Xcode11创建启动图"><a href="#Xcode11创建启动图" class="headerlink" title="Xcode11创建启动图"></a>Xcode11创建启动图</h1>
       
     </div>
@@ -667,7 +680,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Xcode11添加引导页"><span class="nav-number">1.</span> <span class="nav-text">Xcode11添加引导页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建LaunchImage"><span class="nav-number">1.1.</span> <span class="nav-text">新建LaunchImage</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Xcode11创建启动图"><span class="nav-number">2.</span> <span class="nav-text">Xcode11创建启动图</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Xcode11添加启动页"><span class="nav-number">1.</span> <span class="nav-text">Xcode11添加启动页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建LaunchImage"><span class="nav-number">1.1.</span> <span class="nav-text">新建LaunchImage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择新建的启动页"><span class="nav-number">1.2.</span> <span class="nav-text">选择新建的启动页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#警告⚠️"><span class="nav-number">1.3.</span> <span class="nav-text">警告⚠️</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Xcode11创建启动图"><span class="nav-number">2.</span> <span class="nav-text">Xcode11创建启动图</span></a></li></ol></div>
             
 
           </div>

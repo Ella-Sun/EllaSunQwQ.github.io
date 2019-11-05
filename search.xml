@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Xcode11探索之旅]]></title>
     <url>%2F2019%2F11%2F05%2FXcode11%E6%8E%A2%E7%B4%A2%E4%B9%8B%E6%97%85%2F</url>
-    <content type="text"><![CDATA[在更新到Xcode11、iOS13之后，对原有项目进行适配各种操作。最近需求一个全新的APP，才发现Xcode11变了很多，再也不是我印象中的那个TA了。 Xcode11添加引导页 Xcode11创建启动图 Xcode11添加引导页首先感谢网上各位大神。 新建LaunchImage Xcode11创建启动图]]></content>
+    <content type="text"><![CDATA[在更新到Xcode11、iOS13之后，对原有项目进行适配各种操作。最近需求一个全新的APP，才发现Xcode11变了很多，再也不是我印象中的那个TA了。 Xcode11添加启动页面 Xcode11创建启动图 Xcode11添加启动页首先感谢网上各位大神。 新建LaunchImage 拖入UI给的符合尺寸的图片 选择新建的启动页Xcode11中，在target里边的App Icons and Launch Images，没有了Launch Images Source选项。 解决方法 将Launch Screen File置为空。 在工程targets–&gt;Build Settings 搜索 Asset Catalog Launch Image Set Name，然后设置成新建的启动页名称即可。 警告⚠️需要注意到一个警告： 从2020年4月开始，使⽤ iOS13 SDK 的 App 将必须提供 LaunchScreen，而LaunchImage将退出历史的舞台，说明以后启动页要通过LaunchScreen来设置了。s Xcode11创建启动图]]></content>
       <categories>
         <category>iOS开发</category>
       </categories>
