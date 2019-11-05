@@ -77,19 +77,19 @@
 
 
 
-<meta name="description" content="iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案">
+<meta name="description" content="iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案 其他iOS13适配方案">
 <meta name="keywords" content="iOS开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 13 presentViewController 默认样式的变化">
 <meta property="og:url" content="http://www.sunhong.vip/2019/09/27/iOS-13-presentViewController-默认样式的变化/index.html">
 <meta property="og:site_name" content="Ella">
-<meta property="og:description" content="iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案">
+<meta property="og:description" content="iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案 其他iOS13适配方案">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.sunhong.vip/images/present.png">
-<meta property="og:updated_time" content="2019-09-27T09:51:41.052Z">
+<meta property="og:updated_time" content="2019-11-05T07:47:22.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 13 presentViewController 默认样式的变化">
-<meta name="twitter:description" content="iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案">
+<meta name="twitter:description" content="iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案 其他iOS13适配方案">
 <meta name="twitter:image" content="http://www.sunhong.vip/images/present.png">
 
 
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  546
+                  837
                 </span>
               
 
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -429,6 +429,7 @@
         <ul>
 <li>iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。</li>
 <li>解决方案</li>
+<li>其他iOS13适配方案</li>
 </ul>
 <a id="more"></a>
 <h1 id="iOS-13-presentViewController-默认样式的变化"><a href="#iOS-13-presentViewController-默认样式的变化" class="headerlink" title="iOS 13 presentViewController 默认样式的变化"></a>iOS 13 presentViewController 默认样式的变化</h1><p>转发<a href="https://www.jianshu.com/p/4d27256b3a94" target="_blank" rel="noopener">iOS 13[beta] presentViewController 默认样式的变化</a> + 问题解决方案</p>
@@ -456,12 +457,28 @@
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>在需要全屏展示的VC中添加代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)init</span><br><span class="line">&#123;</span><br><span class="line">    self = [super init];</span><br><span class="line">    if (self) &#123;</span><br><span class="line">        self.modalPresentationStyle = UIModalPresentationFullScreen;</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>有问题欢迎评论。<br><a href="https://www.jianshu.com/p/423fcee37cd8" target="_blank" rel="noopener">简书</a></p>
-<h1 id="其他对于iOS13适配做的工作"><a href="#其他对于iOS13适配做的工作" class="headerlink" title="其他对于iOS13适配做的工作"></a>其他对于iOS13适配做的工作</h1><h2 id="APP-内全局关闭暗黑模式"><a href="#APP-内全局关闭暗黑模式" class="headerlink" title="APP 内全局关闭暗黑模式"></a>APP 内全局关闭暗黑模式</h2><h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>plist 里面添加如下键值:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;UIUserInterfaceStyle&lt;/key&gt;</span><br><span class="line">&lt;string&gt;Light&lt;/string&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="其他对于iOS13适配做的工作"><a href="#其他对于iOS13适配做的工作" class="headerlink" title="其他对于iOS13适配做的工作"></a>其他对于iOS13适配做的工作</h1><h2 id="APP-内全局关闭暗黑模式"><a href="#APP-内全局关闭暗黑模式" class="headerlink" title="APP 内全局关闭暗黑模式"></a>APP 内全局关闭暗黑模式</h2><h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>plist 里面添加如下键值:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;UIUserInterfaceStyle&lt;/key&gt;</span><br><span class="line">&lt;string&gt;UIUserInterfaceStyleLight&lt;/string&gt;</span><br></pre></td></tr></table></figure></p>
+<p>UIUserInterfaceStyle为</p>
+<ul>
+<li>UIUserInterfaceStyleLight</li>
+<li>UIUserInterfaceStyleDark</li>
+</ul>
 <h2 id="UITextField通过KVC方式修改空白提示语颜色-崩溃"><a href="#UITextField通过KVC方式修改空白提示语颜色-崩溃" class="headerlink" title="UITextField通过KVC方式修改空白提示语颜色 崩溃"></a>UITextField通过KVC方式修改空白提示语颜色 崩溃</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[UITextField setValue:[UIColor redColor] forKeyPath:@&quot;_placeholderLabel.textColor”];</span><br></pre></td></tr></table></figure>
+<h3 id="问题分析-1"><a href="#问题分析-1" class="headerlink" title="问题分析"></a>问题分析</h3><p>私有API被封禁(KVC限制),禁止访问</p>
 <h3 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="解决方案"></a>解决方案</h3><p>使用<code>attributedPlaceholder</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:placeStr attributes:@&#123;NSForegroundColorAttributeName:[UIColor grayColor]&#125;];</span><br><span class="line">inputTextField.attributedPlaceholder = attString;</span><br></pre></td></tr></table></figure>
-<h2 id="可参考文章"><a href="#可参考文章" class="headerlink" title="可参考文章"></a>可参考文章</h2><ul>
+<h2 id="LaunchImage即将被废弃"><a href="#LaunchImage即将被废弃" class="headerlink" title="LaunchImage即将被废弃"></a>LaunchImage即将被废弃</h2><p>从 iOS 8 的时候，苹果就引入了 LaunchScreen，我们可以设置 LaunchScreen来作为启动页。</p>
+<p>当然，现在你还可以使用LaunchImage来设置启动图。</p>
+<p>不过使用LaunchImage的话，要求我们必须提供各种屏幕尺寸的启动图，来适配各种设备，随着苹果设备尺寸越来越多，这种方式显然不够 Flexible。</p>
+<p>而使用 LaunchScreen的话，情况会变的很简单， LaunchScreen是支持AutoLayout+SizeClass的，所以适配各种屏幕都不在话下。</p>
+<p>⚠️从2020年4月开始，所有使⽤ iOS13 SDK的 App将必须提供 LaunchScreen，LaunchImage即将退出历史舞台。可以使用LaunchScreen.storyboard来进行解决。</p>
+<h2 id="tabBarItem-选中状态的颜色无效-显示默认的蓝色"><a href="#tabBarItem-选中状态的颜色无效-显示默认的蓝色" class="headerlink" title="tabBarItem 选中状态的颜色无效,显示默认的蓝色"></a>tabBarItem 选中状态的颜色无效,显示默认的蓝色</h2><h3 id="解决方案-3"><a href="#解决方案-3" class="headerlink" title="解决方案"></a>解决方案</h3><p>以前只设置选中状态的颜色是可以的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[vc.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: MENU_ITEM_SELECTED_COLOR, NSForegroundColorAttributeName, nil] forState:UIControlStateSelected</span><br></pre></td></tr></table></figure>
+<p>现在可以这样设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if (@available(iOS 13.0, *)) &#123;</span><br><span class="line">        self.tabBar.tintColor = MENU_ITEM_SELECTED_COLOR;</span><br><span class="line"></span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        [vc.tabBarItem setTitleTextAttributes:@&#123;NSForegroundColorAttributeName: MENU_ITEM_SELECTED_COLOR&#125; forState:UIControlStateSelected];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
 <li><a href="https://www.jianshu.com/p/d2a0fa7bcbef" target="_blank" rel="noopener">iOS13适配</a></li>
+<li><a href="https://www.cnblogs.com/ljcgood66/p/11670814.html" target="_blank" rel="noopener">Xcode11.1 踩坑备忘录（mac系统10.15）</a></li>
 </ul>
 
       
@@ -700,7 +717,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS-13-presentViewController-默认样式的变化"><span class="nav-number">1.</span> <span class="nav-text">iOS 13 presentViewController 默认样式的变化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">1.1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他对于iOS13适配做的工作"><span class="nav-number">2.</span> <span class="nav-text">其他对于iOS13适配做的工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#APP-内全局关闭暗黑模式"><span class="nav-number">2.1.</span> <span class="nav-text">APP 内全局关闭暗黑模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UITextField通过KVC方式修改空白提示语颜色-崩溃"><span class="nav-number">2.2.</span> <span class="nav-text">UITextField通过KVC方式修改空白提示语颜色 崩溃</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案-2"><span class="nav-number">2.2.1.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可参考文章"><span class="nav-number">2.3.</span> <span class="nav-text">可参考文章</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS-13-presentViewController-默认样式的变化"><span class="nav-number">1.</span> <span class="nav-text">iOS 13 presentViewController 默认样式的变化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">1.1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他对于iOS13适配做的工作"><span class="nav-number">2.</span> <span class="nav-text">其他对于iOS13适配做的工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#APP-内全局关闭暗黑模式"><span class="nav-number">2.1.</span> <span class="nav-text">APP 内全局关闭暗黑模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UITextField通过KVC方式修改空白提示语颜色-崩溃"><span class="nav-number">2.2.</span> <span class="nav-text">UITextField通过KVC方式修改空白提示语颜色 崩溃</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题分析-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LaunchImage即将被废弃"><span class="nav-number">2.3.</span> <span class="nav-text">LaunchImage即将被废弃</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tabBarItem-选中状态的颜色无效-显示默认的蓝色"><span class="nav-number">2.4.</span> <span class="nav-text">tabBarItem 选中状态的颜色无效,显示默认的蓝色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案-3"><span class="nav-number">2.4.1.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">2.5.</span> <span class="nav-text">参考文章</span></a></li></ol></li></ol></div>
             
 
           </div>
