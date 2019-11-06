@@ -88,8 +88,15 @@
 <meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/Launch.png">
 <meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/AppImage.png">
 <meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/asset.png">
-<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/Alert.png">
-<meta property="og:updated_time" content="2019-11-05T08:31:13.805Z">
+<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/alert.png">
+<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/scene.png">
+<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/mainstoryboard.png">
+<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/inter.png">
+<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/sceneNew.png">
+<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/scene.png">
+<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/sceneInfo.png">
+<meta property="og:image" content="http://www.sunhong.vip/images/Xcode11探索之旅/lifecycle.png">
+<meta property="og:updated_time" content="2019-11-06T08:25:38.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xcode11探索之旅">
 <meta name="twitter:description" content="在更新到Xcode11、iOS13之后，对原有项目进行适配各种操作。最近需求一个全新的APP，才发现Xcode11变了很多，再也不是我印象中的那个TA了。  Xcode11添加启动页 Xcode11创建启动页动画">
@@ -392,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  608
+                  1k
                 </span>
               
 
@@ -408,7 +415,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -435,6 +442,12 @@
 <li>Xcode11创建启动页动画</li>
 </ul>
 <a id="more"></a>
+<p>背景：</p>
+<ul>
+<li>Xcode11</li>
+<li>iOS13.1</li>
+<li>纯代码构建</li>
+</ul>
 <h1 id="Xcode11设置启动页"><a href="#Xcode11设置启动页" class="headerlink" title="Xcode11设置启动页"></a>Xcode11设置启动页</h1><p>首先感谢网上各位大神。</p>
 <ul>
 <li><a href="https://www.jianshu.com/p/e86c5ea1e5fd" target="_blank" rel="noopener">Xcode11添加引导页（升级后Launch Images Source选项不见了）</a></li>
@@ -449,12 +462,57 @@
 <p>在工程<code>targets</code>–&gt;<code>Build Settings</code> 搜索 <code>Asset Catalog Launch Image Set Name</code>，然后设置成新建的启动图片名称即可。</p>
 <p><img src="/images/Xcode11探索之旅/asset.png" alt></p>
 <h2 id="警告⚠️"><a href="#警告⚠️" class="headerlink" title="警告⚠️"></a>警告⚠️</h2><p>需要注意到一个警告：</p>
-<p><img src="/images/Xcode11探索之旅/Alert.png" alt></p>
+<p><img src="/images/Xcode11探索之旅/alert.png" alt></p>
 <p><strong>从2020年4月开始，使⽤ iOS13 SDK 的 App 将必须提供 LaunchScreen，而LaunchImage将退出历史的舞台，说明以后启动页要通过LaunchScreen.storyboard来设置了。</strong></p>
 <p>从 iOS 8 的时候，苹果就引入了 LaunchScreen，我们可以设置 LaunchScreen来作为启动页。</p>
 <p>使用LaunchImage的话，要求我们必须提供各种屏幕尺寸的启动图，来适配各种设备，随着苹果设备尺寸越来越多，这种方式显然不够 Flexible。</p>
 <p>而使用 LaunchScreen的话，情况会变的很简单， LaunchScreen是支持AutoLayout+SizeClass的，所以适配各种屏幕都不在话下。</p>
-<h1 id="Xcode11创建启动动画"><a href="#Xcode11创建启动动画" class="headerlink" title="Xcode11创建启动动画"></a>Xcode11创建启动动画</h1><p> 正在创建中。。。draft</p>
+<h1 id="Xcode11纯代码创建启动动画-初始界面"><a href="#Xcode11纯代码创建启动动画-初始界面" class="headerlink" title="Xcode11纯代码创建启动动画/初始界面"></a>Xcode11纯代码创建启动动画/初始界面</h1><h2 id="删除工程中main-storyboard"><a href="#删除工程中main-storyboard" class="headerlink" title="删除工程中main.storyboard"></a>删除工程中main.storyboard</h2><ul>
+<li>区别一：项目中除了有APPdelegate.h和APPdelegate.m文件，还有了Scenedelegate.h和Scenedelegate.m文件。</li>
+</ul>
+<blockquote>
+<p>In iOS 13 and later, use UISceneDelegate objects to respond to life-cycle events in a scene-based app.<br>iOS13版本之后，AppDelegate(UIApplicationDelegate)控制生命周期的行为交给了SceneDelegate(UIWindowSceneDelegate)</p>
+</blockquote>
+<p>这个场景，如果不使用iPad的多窗口不建议使用.</p>
+<p><img src="/images/Xcode11探索之旅/scene.png" alt></p>
+<h2 id="删掉info-plist文件中对应的键值"><a href="#删掉info-plist文件中对应的键值" class="headerlink" title="删掉info.plist文件中对应的键值"></a>删掉info.plist文件中对应的键值</h2><ul>
+<li>区别二：info.plist文件中main.storyboard的引用位置发生了改变</li>
+</ul>
+<p>因为iOS13之后出现了UISceneDelegate，main变为UISceneDelegate目录下，如下图。</p>
+<p><img src="/images/Xcode11探索之旅/mainstoryboard.png" alt></p>
+<p>删掉StoryboardName键值对。</p>
+<p>如果只删除main.storyboard，会报如下的错误：</p>
+<blockquote>
+<p>Could not find a storyboard named ‘Main’ in bundle NSBundle</p>
+</blockquote>
+<h2 id="删掉TARGETS中main的引用"><a href="#删掉TARGETS中main的引用" class="headerlink" title="删掉TARGETS中main的引用"></a>删掉TARGETS中main的引用</h2><p><img src="/images/Xcode11探索之旅/inter.png" alt></p>
+<h2 id="方法一：使用UISceneDelegate"><a href="#方法一：使用UISceneDelegate" class="headerlink" title="方法一：使用UISceneDelegate"></a>方法一：使用<code>UISceneDelegate</code></h2><p>在<code>SceneDelegate.m</code>中写入window初始化代码</p>
+<p><strong>警告⚠️</strong></p>
+<p>原来初始化window的代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//实例化window</span><br><span class="line">self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];</span><br><span class="line">self.window.backgroundColor = [UIColor whiteColor];</span><br><span class="line">//手写项目需要初始化开始页面：</span><br><span class="line">ViewController *mainView = [[ViewController alloc] init];</span><br><span class="line">self.window.rootViewController = mainView;</span><br><span class="line">[self.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
+<p>如果还用<code>initWithFrame</code>方法，运行项目，会出现启动页之后变成了黑屏。</p>
+<p><strong>正确的初始化方法是<code>initWithWindowScene</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">UIWindowScene *windowScene = (UIWindowScene *)scene;</span><br><span class="line">//实例化window</span><br><span class="line">self.window = [[UIWindow alloc] initWithWindowScene:windowScene];</span><br><span class="line">self.window.backgroundColor = [UIColor whiteColor];</span><br><span class="line">//手写项目需要初始化开始页面：</span><br><span class="line">ViewController *mainView = [[ViewController alloc] init];</span><br><span class="line">self.window.rootViewController = mainView;</span><br><span class="line">[self.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
+<p>如下图所示</p>
+<p><img src="/images/Xcode11探索之旅/sceneNew.png" alt></p>
+<h2 id="方法二：使用原有的AppDelegate-UIApplicationDelegate"><a href="#方法二：使用原有的AppDelegate-UIApplicationDelegate" class="headerlink" title="方法二：使用原有的AppDelegate(UIApplicationDelegate)"></a>方法二：使用原有的AppDelegate(UIApplicationDelegate)</h2><ul>
+<li>删掉SceneDelegate.h和SceneDelegate.m文件</li>
+</ul>
+<p><img src="/images/Xcode11探索之旅/scene.png" alt></p>
+<ul>
+<li>删掉info.plist文件中关于UISceneDelegate的键值</li>
+</ul>
+<p><img src="/images/Xcode11探索之旅/sceneInfo.png" alt></p>
+<ul>
+<li>在APPdelegate.m中，注释掉关于UISceneDelegate的初始代码。</li>
+</ul>
+<p>注释掉如下图所示代码：</p>
+<p><img src="/images/Xcode11探索之旅/lifecycle.png" alt></p>
+<ul>
+<li>在AppDelegate.h中添加window属性</li>
+</ul>
+<p><code>@property (strong, nonatomic) UIWindow * window;</code></p>
+<p>之后的操作和改版之前一样。</p>
 <p>假如这个时候想做一些其他的动画，可以使用下面的这个方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">- (NSString *)splashImageNameForOrientation:(UIDeviceOrientation)orientation &#123;</span><br><span class="line">    CGSize viewSize = self.view.bounds.size;</span><br><span class="line">    NSString* viewOrientation = @&quot;Portrait&quot;;</span><br><span class="line">    if (UIDeviceOrientationIsLandscape(orientation)) &#123;</span><br><span class="line">        viewSize = CGSizeMake(viewSize.height, viewSize.width);</span><br><span class="line">        viewOrientation = @&quot;Landscape&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    NSArray* imagesDict = [[[NSBundle mainBundle] infoDictionary] valueForKey:@&quot;UILaunchImages&quot;];</span><br><span class="line">    for (NSDictionary* dict in imagesDict) &#123;</span><br><span class="line">        CGSize imageSize = CGSizeFromString(dict[@&quot;UILaunchImageSize&quot;]);</span><br><span class="line">        if (CGSizeEqualToSize(imageSize, viewSize) &amp;&amp; [viewOrientation isEqualToString:dict[@&quot;UILaunchImageOrientation&quot;]])</span><br><span class="line">            return dict[@&quot;UILaunchImageName&quot;];</span><br><span class="line">    &#125;</span><br><span class="line">    return nil;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <p> 用这个方法就能获得启动页图片的名字，然后自己可以新写一个页面，作为应用的初始页面，在这个页面中只放一张图片，类似启动页，刚开始把图片设置为原来的启动页图片，然后可以根据自己需求，对图片做一些变化，从启动页到自定义的初始页基本上看不出来变化，然后对图片做变化，就好似启动页在做动画，在动画做完后直接进入主界面。</p>
@@ -691,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Xcode11设置启动页"><span class="nav-number">1.</span> <span class="nav-text">Xcode11设置启动页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建LaunchImage"><span class="nav-number">1.1.</span> <span class="nav-text">新建LaunchImage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择新建的启动页"><span class="nav-number">1.2.</span> <span class="nav-text">选择新建的启动页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#警告⚠️"><span class="nav-number">1.3.</span> <span class="nav-text">警告⚠️</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Xcode11创建启动动画"><span class="nav-number">2.</span> <span class="nav-text">Xcode11创建启动动画</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Xcode11设置启动页"><span class="nav-number">1.</span> <span class="nav-text">Xcode11设置启动页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建LaunchImage"><span class="nav-number">1.1.</span> <span class="nav-text">新建LaunchImage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择新建的启动页"><span class="nav-number">1.2.</span> <span class="nav-text">选择新建的启动页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#警告⚠️"><span class="nav-number">1.3.</span> <span class="nav-text">警告⚠️</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Xcode11纯代码创建启动动画-初始界面"><span class="nav-number">2.</span> <span class="nav-text">Xcode11纯代码创建启动动画/初始界面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#删除工程中main-storyboard"><span class="nav-number">2.1.</span> <span class="nav-text">删除工程中main.storyboard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删掉info-plist文件中对应的键值"><span class="nav-number">2.2.</span> <span class="nav-text">删掉info.plist文件中对应的键值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删掉TARGETS中main的引用"><span class="nav-number">2.3.</span> <span class="nav-text">删掉TARGETS中main的引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：使用UISceneDelegate"><span class="nav-number">2.4.</span> <span class="nav-text">方法一：使用UISceneDelegate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二：使用原有的AppDelegate-UIApplicationDelegate"><span class="nav-number">2.5.</span> <span class="nav-text">方法二：使用原有的AppDelegate(UIApplicationDelegate)</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1229,5 +1287,5 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>

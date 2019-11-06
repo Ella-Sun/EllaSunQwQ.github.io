@@ -86,7 +86,7 @@
 <meta property="og:description" content="iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案 其他iOS13适配方案">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.sunhong.vip/images/present.png">
-<meta property="og:updated_time" content="2019-11-05T07:47:22.938Z">
+<meta property="og:updated_time" content="2019-11-06T02:28:07.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 13 presentViewController 默认样式的变化">
 <meta name="twitter:description" content="iOS13中，模态展示的视图默认样式变成iPhone上Safari展示的分页样式。 解决方案 其他iOS13适配方案">
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  837
+                  833
                 </span>
               
 
@@ -458,11 +458,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)init</span><br><span class="line">&#123;</span><br><span class="line">    self = [super init];</span><br><span class="line">    if (self) &#123;</span><br><span class="line">        self.modalPresentationStyle = UIModalPresentationFullScreen;</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>有问题欢迎评论。<br><a href="https://www.jianshu.com/p/423fcee37cd8" target="_blank" rel="noopener">简书</a></p>
 <h1 id="其他对于iOS13适配做的工作"><a href="#其他对于iOS13适配做的工作" class="headerlink" title="其他对于iOS13适配做的工作"></a>其他对于iOS13适配做的工作</h1><h2 id="APP-内全局关闭暗黑模式"><a href="#APP-内全局关闭暗黑模式" class="headerlink" title="APP 内全局关闭暗黑模式"></a>APP 内全局关闭暗黑模式</h2><h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>plist 里面添加如下键值:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;UIUserInterfaceStyle&lt;/key&gt;</span><br><span class="line">&lt;string&gt;UIUserInterfaceStyleLight&lt;/string&gt;</span><br></pre></td></tr></table></figure></p>
-<p>UIUserInterfaceStyle为</p>
-<ul>
-<li>UIUserInterfaceStyleLight</li>
-<li>UIUserInterfaceStyleDark</li>
-</ul>
 <h2 id="UITextField通过KVC方式修改空白提示语颜色-崩溃"><a href="#UITextField通过KVC方式修改空白提示语颜色-崩溃" class="headerlink" title="UITextField通过KVC方式修改空白提示语颜色 崩溃"></a>UITextField通过KVC方式修改空白提示语颜色 崩溃</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[UITextField setValue:[UIColor redColor] forKeyPath:@&quot;_placeholderLabel.textColor”];</span><br></pre></td></tr></table></figure>
 <h3 id="问题分析-1"><a href="#问题分析-1" class="headerlink" title="问题分析"></a>问题分析</h3><p>私有API被封禁(KVC限制),禁止访问</p>
 <h3 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="解决方案"></a>解决方案</h3><p>使用<code>attributedPlaceholder</code></p>
@@ -1255,5 +1250,5 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
