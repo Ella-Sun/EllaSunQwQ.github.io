@@ -210,9 +210,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[swift4进阶]]></title>
-    <url>%2F2018%2F09%2F19%2Fswift4%E8%BF%9B%E9%98%B6%2F</url>
-    <content type="text"><![CDATA[Swift 4.0 教程 三十天三十个 Swift 项目 三十天三十个 Swift 项目-简书]]></content>
+    <title><![CDATA[全面的-gitignore模板集合]]></title>
+    <url>%2F2018%2F09%2F19%2F%E5%85%A8%E9%9D%A2%E7%9A%84-gitignore%E6%A8%A1%E6%9D%BF%E9%9B%86%E5%90%88%2F</url>
+    <content type="text"><![CDATA[对于不同的编程语言、不同的编译系统、不同的构建工具，很难找到所有需要添加ignore的文件，经常会出现各种遗漏等选择性错误。如果能有一个东西，就像是一个模板，记录所有环境下的ignore信息，在需要的时候便于查询，那就太合适不过了。全面的ignore集合 原简书地址]]></content>
       <categories>
         <category>iOS开发</category>
       </categories>
@@ -221,9 +221,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[全面的-gitignore模板集合]]></title>
-    <url>%2F2018%2F09%2F19%2F%E5%85%A8%E9%9D%A2%E7%9A%84-gitignore%E6%A8%A1%E6%9D%BF%E9%9B%86%E5%90%88%2F</url>
-    <content type="text"><![CDATA[对于不同的编程语言、不同的编译系统、不同的构建工具，很难找到所有需要添加ignore的文件，经常会出现各种遗漏等选择性错误。如果能有一个东西，就像是一个模板，记录所有环境下的ignore信息，在需要的时候便于查询，那就太合适不过了。全面的ignore集合 原简书地址]]></content>
+    <title><![CDATA[swift4进阶]]></title>
+    <url>%2F2018%2F09%2F19%2Fswift4%E8%BF%9B%E9%98%B6%2F</url>
+    <content type="text"><![CDATA[Swift 4.0 教程 三十天三十个 Swift 项目 三十天三十个 Swift 项目-简书]]></content>
       <categories>
         <category>iOS开发</category>
       </categories>
